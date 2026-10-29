@@ -1,4 +1,4 @@
-// N24 FITNESS - Smart Diet Architect & Meal Planner Engine
+// N24 FITNESS - Executive Diet Architect & Meal Planner Engine
 import { FOOD_DATABASE, PRESET_DIETS } from './data.js';
 
 class DietArchitect {
@@ -8,13 +8,13 @@ class DietArchitect {
     
     this.profile = {
       gender: 'male',
-      age: 30,
+      age: 32,
       weightLbs: 185,
       heightFeet: 5,
       heightInches: 10,
       weightKg: 84,
       heightCm: 178,
-      activityLevel: 1.55, // Moderate
+      activityLevel: 1.55, // Moderate training
       goal: 'cut' // cut, recomp, maintain, bulk, keto
     };
 
@@ -37,12 +37,12 @@ class DietArchitect {
     };
 
     this.mealNames = {
-      breakfast: "Meal 1: High-Energy Breakfast",
-      snack1: "Meal 2: Mid-Morning Fuel",
-      lunch: "Meal 3: Lean Muscle Lunch",
-      postWorkout: "Meal 4: Anabolic Post-Workout Recovery",
-      dinner: "Meal 5: Sustained Dinner",
-      eveningSnack: "Meal 6: Night-Time Casein / Snack"
+      breakfast: "Meal 01 — Breakfast Protocol",
+      snack1: "Meal 02 — Mid-Morning Nutrition",
+      lunch: "Meal 03 — Midday Fuel",
+      postWorkout: "Meal 04 — Post-Training Recovery",
+      dinner: "Meal 05 — Evening Dinner",
+      eveningSnack: "Meal 06 — Bedtime Nutrition"
     };
 
     this.activeMealForModal = 'breakfast';
@@ -77,14 +77,12 @@ class DietArchitect {
   updateProfileFormInputs() {
     const isImperial = this.unitSystem === 'imperial';
     
-    // Toggle input field visibility
     const imperialInputs = document.querySelectorAll('.unit-imperial-field');
     const metricInputs = document.querySelectorAll('.unit-metric-field');
     
     imperialInputs.forEach(el => el.classList.toggle('hidden', !isImperial));
     metricInputs.forEach(el => el.classList.toggle('hidden', isImperial));
 
-    // Update values
     const weightLbsInput = document.getElementById('diet-weight-lbs');
     const heightFtInput = document.getElementById('diet-height-ft');
     const heightInInput = document.getElementById('diet-height-in');
@@ -128,16 +126,16 @@ class DietArchitect {
       : Math.round(this.profile.weightKg * 2.20462);
 
     switch (this.profile.goal) {
-      case 'cut': // Aggressive Fat Shred (-500 kcal, high protein)
-        targetCalories = Math.max(1300, tdee - 500);
-        proteinGrams = Math.round(bodyweightLbs * 1.1); // 1.1g per lb
+      case 'cut': // Targeted Fat Shred (-500 kcal, high protein retention)
+        targetCalories = Math.max(1350, tdee - 500);
+        proteinGrams = Math.round(bodyweightLbs * 1.05);
         fatGrams = Math.round((targetCalories * 0.25) / 9);
         const remainingCutCals = targetCalories - (proteinGrams * 4) - (fatGrams * 9);
         carbsGrams = Math.max(50, Math.round(remainingCutCals / 4));
         break;
 
       case 'recomp': // Lean Athletic Recomposition (-200 kcal)
-        targetCalories = Math.max(1500, tdee - 200);
+        targetCalories = Math.max(1550, tdee - 200);
         proteinGrams = Math.round(bodyweightLbs * 1.0);
         fatGrams = Math.round((targetCalories * 0.28) / 9);
         const remRecompCals = targetCalories - (proteinGrams * 4) - (fatGrams * 9);
@@ -152,15 +150,15 @@ class DietArchitect {
         carbsGrams = Math.round(remBulkCals / 4);
         break;
 
-      case 'keto': // Ketogenic Fat Burn (-400 kcal, very low carb)
+      case 'keto': // Ketogenic Metabolic Reset (-400 kcal)
         targetCalories = Math.max(1400, tdee - 400);
         proteinGrams = Math.round(bodyweightLbs * 0.95);
-        carbsGrams = 30; // strict keto carb ceiling
+        carbsGrams = 30;
         const remKetoCals = targetCalories - (proteinGrams * 4) - (carbsGrams * 4);
         fatGrams = Math.round(remKetoCals / 9);
         break;
 
-      case 'maintain': // Maintenance & Performance
+      case 'maintain':
       default:
         targetCalories = tdee;
         proteinGrams = Math.round(bodyweightLbs * 0.9);
@@ -204,83 +202,78 @@ class DietArchitect {
     if (!container) return;
 
     container.innerHTML = '';
-
     const mealKeys = Object.keys(this.meals);
 
     mealKeys.forEach(mealKey => {
       const items = this.meals[mealKey];
       const mealTitle = this.mealNames[mealKey];
 
-      // Calculate meal totals
       const mealCalories = items.reduce((sum, item) => sum + item.calories, 0);
       const mealProtein = items.reduce((sum, item) => sum + item.protein, 0);
       const mealCarbs = items.reduce((sum, item) => sum + item.carbs, 0);
       const mealFat = items.reduce((sum, item) => sum + item.fat, 0);
 
       const mealCard = document.createElement('div');
-      mealCard.className = 'n24-card p-5 mb-5 border border-gold-glow/20 relative group';
+      mealCard.className = 'exec-card p-4 sm:p-5 mb-4 border border-white/5 relative bg-[#0D0F15]';
 
       mealCard.innerHTML = `
-        <div class="flex flex-wrap items-center justify-between pb-3 mb-3 border-b border-white/10 gap-2">
-          <div class="flex items-center space-x-3">
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_8px_#D4AF37]"></span>
-            <h4 class="font-bold text-lg text-white font-sans tracking-wide">${mealTitle}</h4>
-            <span class="text-xs px-2.5 py-0.5 rounded-full bg-white/5 text-gray-400 font-mono">
+        <div class="flex flex-wrap items-center justify-between pb-3 mb-3 border-b border-white/[0.07] gap-2">
+          <div class="flex items-center space-x-2.5">
+            <h4 class="font-bold text-sm text-slate-100 tracking-tight font-sans">${mealTitle}</h4>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-white/5 text-slate-400 font-mono">
               ${items.length} ${items.length === 1 ? 'item' : 'items'}
             </span>
           </div>
 
-          <div class="flex items-center space-x-4 text-xs font-mono">
-            <span class="text-amber-300 font-bold text-sm">${Math.round(mealCalories)} kcal</span>
-            <span class="text-blue-400 font-medium">${Math.round(mealProtein)}g P</span>
-            <span class="text-amber-400 font-medium">${Math.round(mealCarbs)}g C</span>
-            <span class="text-red-400 font-medium">${Math.round(mealFat)}g F</span>
+          <div class="flex items-center space-x-3 text-xs font-mono">
+            <span class="text-amber-200 font-bold">${Math.round(mealCalories)} kcal</span>
+            <span class="text-slate-500">•</span>
+            <span class="text-sky-400">${Math.round(mealProtein)}g P</span>
+            <span class="text-amber-300/80">${Math.round(mealCarbs)}g C</span>
+            <span class="text-rose-400">${Math.round(mealFat)}g F</span>
           </div>
         </div>
 
-        <!-- Meal Items List -->
-        <div class="space-y-2 mb-4">
+        <!-- Items Table -->
+        <div class="space-y-1.5 mb-3.5">
           ${items.length === 0 ? `
-            <div class="py-6 text-center text-gray-500 text-sm border border-dashed border-gray-800 rounded-lg">
-              <i class="fa-solid fa-utensils mb-2 text-gray-600 block text-lg"></i>
-              No foods added to this meal slot yet. Click "+ Add Food" below.
+            <div class="py-5 text-center text-slate-500 text-xs border border-dashed border-white/5 rounded-lg bg-black/20">
+              No nutrition items configured for this slot. Click "+ Add Food" below.
             </div>
           ` : items.map((item, index) => `
-            <div class="flex flex-wrap items-center justify-between p-2.5 rounded-lg bg-black/40 hover:bg-black/60 transition border border-white/5 gap-2">
-              <div class="flex items-center space-x-3 min-w-[200px] flex-1">
-                <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-sm">
-                  <i class="fa-solid fa-${item.icon || 'bowl-food'}"></i>
-                </div>
+            <div class="flex flex-wrap items-center justify-between p-2 rounded-md bg-black/30 hover:bg-black/50 transition border border-white/[0.04] gap-2 text-xs">
+              <div class="flex items-center space-x-2.5 min-w-[200px] flex-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
                 <div>
-                  <div class="text-sm font-semibold text-gray-200">${item.name}</div>
-                  <div class="text-xs text-gray-400">
-                    Portion: <span class="text-amber-200/90 font-medium">${item.servingDisplay}</span>
+                  <div class="font-medium text-slate-200 text-xs">${item.name}</div>
+                  <div class="text-[11px] text-slate-400 font-mono">
+                    Portion: <span class="text-slate-300">${item.servingDisplay}</span>
                   </div>
                 </div>
               </div>
 
               <!-- Macros Display -->
-              <div class="flex items-center space-x-3 text-xs font-mono">
-                <span class="text-gray-300 font-semibold">${Math.round(item.calories)} cal</span>
-                <span class="text-blue-300">${Math.round(item.protein)}g P</span>
-                <span class="text-amber-300">${Math.round(item.carbs)}g C</span>
-                <span class="text-red-300">${Math.round(item.fat)}g F</span>
+              <div class="flex items-center space-x-2.5 text-xs font-mono">
+                <span class="text-slate-200 font-semibold">${Math.round(item.calories)} cal</span>
+                <span class="text-sky-400">${Math.round(item.protein)}g P</span>
+                <span class="text-amber-200/90">${Math.round(item.carbs)}g C</span>
+                <span class="text-rose-400/90">${Math.round(item.fat)}g F</span>
               </div>
 
-              <!-- Serving Multiplier Buttons & Delete -->
-              <div class="flex items-center space-x-1.5 ml-2">
-                <button type="button" class="btn-serving-decrease px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-bold transition"
+              <!-- Portions Stepper -->
+              <div class="flex items-center space-x-1 ml-2">
+                <button type="button" class="btn-serving-decrease w-6 h-6 rounded bg-white/5 hover:bg-white/10 text-slate-300 text-xs flex items-center justify-center transition border border-white/5"
                   data-meal="${mealKey}" data-index="${index}" title="Decrease portion">
-                  <i class="fa-solid fa-minus text-[10px]"></i>
+                  -
                 </button>
-                <span class="text-xs text-amber-400 font-mono font-bold px-1.5">${item.multiplier}x</span>
-                <button type="button" class="btn-serving-increase px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-gray-300 text-xs font-bold transition"
+                <span class="text-xs text-amber-200 font-mono font-semibold px-1.5">${item.multiplier}x</span>
+                <button type="button" class="btn-serving-increase w-6 h-6 rounded bg-white/5 hover:bg-white/10 text-slate-300 text-xs flex items-center justify-center transition border border-white/5"
                   data-meal="${mealKey}" data-index="${index}" title="Increase portion">
-                  <i class="fa-solid fa-plus text-[10px]"></i>
+                  +
                 </button>
-                <button type="button" class="btn-remove-item ml-2 p-1.5 text-gray-500 hover:text-red-400 transition"
+                <button type="button" class="btn-remove-item ml-2 p-1 text-slate-500 hover:text-rose-400 transition"
                   data-meal="${mealKey}" data-index="${index}" title="Remove item">
-                  <i class="fa-solid fa-trash-can text-xs"></i>
+                  <i class="fa-solid fa-xmark text-xs"></i>
                 </button>
               </div>
             </div>
@@ -288,17 +281,16 @@ class DietArchitect {
         </div>
 
         <!-- Add Food Action Bar -->
-        <div class="flex items-center justify-between pt-2">
-          <button type="button" class="btn-open-food-modal text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center space-x-1.5 bg-amber-400/10 hover:bg-amber-400/20 px-3 py-1.5 rounded-md border border-amber-400/20 transition"
+        <div class="flex items-center justify-between pt-1">
+          <button type="button" class="btn-open-food-modal text-xs font-semibold text-amber-300 hover:text-amber-200 flex items-center space-x-1.5 bg-amber-400/10 hover:bg-amber-400/20 px-3 py-1.5 rounded border border-amber-400/20 transition"
             data-meal="${mealKey}">
-            <i class="fa-solid fa-plus"></i>
-            <span>Add Food to ${mealKey.replace(/^\w/, c => c.toUpperCase())}</span>
+            <i class="fa-solid fa-plus text-[10px]"></i>
+            <span>Add Food Item</span>
           </button>
 
-          <button type="button" class="btn-open-custom-modal text-xs text-gray-400 hover:text-gray-200 flex items-center space-x-1 hover:underline transition"
+          <button type="button" class="btn-open-custom-modal text-[11px] text-slate-400 hover:text-slate-200 flex items-center space-x-1 hover:underline transition"
             data-meal="${mealKey}">
-            <i class="fa-solid fa-pen-to-square text-[10px]"></i>
-            <span>+ Custom Food</span>
+            <span>+ Custom Item</span>
           </button>
         </div>
       `;
@@ -310,44 +302,39 @@ class DietArchitect {
   }
 
   bindMealCardEvents() {
-    // Increase portion
     document.querySelectorAll('.btn-serving-increase').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         const mealKey = btn.getAttribute('data-meal');
         const index = parseInt(btn.getAttribute('data-index'), 10);
         this.adjustMultiplier(mealKey, index, 0.25);
       });
     });
 
-    // Decrease portion
     document.querySelectorAll('.btn-serving-decrease').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         const mealKey = btn.getAttribute('data-meal');
         const index = parseInt(btn.getAttribute('data-index'), 10);
         this.adjustMultiplier(mealKey, index, -0.25);
       });
     });
 
-    // Remove item
     document.querySelectorAll('.btn-remove-item').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         const mealKey = btn.getAttribute('data-meal');
         const index = parseInt(btn.getAttribute('data-index'), 10);
         this.removeItem(mealKey, index);
       });
     });
 
-    // Open Food Catalog Modal
     document.querySelectorAll('.btn-open-food-modal').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         this.activeMealForModal = btn.getAttribute('data-meal');
         this.openFoodModal();
       });
     });
 
-    // Open Custom Food Modal
     document.querySelectorAll('.btn-open-custom-modal').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         this.activeMealForModal = btn.getAttribute('data-meal');
         this.openCustomModal();
       });
@@ -361,7 +348,6 @@ class DietArchitect {
     let newMult = Math.round((item.multiplier + delta) * 100) / 100;
     if (newMult <= 0.1) newMult = 0.25;
 
-    // Scale macros proportionally
     const baseCals = item.calories / item.multiplier;
     const baseP = item.protein / item.multiplier;
     const baseC = item.carbs / item.multiplier;
@@ -373,7 +359,6 @@ class DietArchitect {
     item.carbs = Math.round((baseC * newMult) * 10) / 10;
     item.fat = Math.round((baseF * newMult) * 10) / 10;
 
-    // Update serving string
     if (item.baseServing) {
       const isImperial = this.unitSystem === 'imperial';
       const unit = isImperial ? item.baseUnit : item.baseMetricUnit;
@@ -424,9 +409,7 @@ class DietArchitect {
     this.renderMeals();
     this.updateSummaryAndCharts();
     this.saveToStorage();
-
-    // Trigger feedback badge or toast
-    this.showToast(`Added ${food.name} to ${this.mealNames[mealKey]}`);
+    this.showToast(`Added ${food.name}`);
   }
 
   addCustomFood(mealKey, name, portion, calories, protein, carbs, fat) {
@@ -449,7 +432,7 @@ class DietArchitect {
     this.renderMeals();
     this.updateSummaryAndCharts();
     this.saveToStorage();
-    this.showToast(`Custom food "${name}" added!`);
+    this.showToast(`Added custom item "${name}"`);
   }
 
   updateSummaryAndCharts() {
@@ -472,13 +455,11 @@ class DietArchitect {
     totalCarbs = Math.round(totalCarbs);
     totalFat = Math.round(totalFat);
 
-    // Save to window for Calorie Calculator sync
     window.N24_DIET_INTAKE_CALS = totalCalories;
     if (window.N24_CALORIE_CALCULATOR_INSTANCE) {
       window.N24_CALORIE_CALCULATOR_INSTANCE.updateEnergyBalance();
     }
 
-    // Update UI Counters
     const currCalEl = document.getElementById('diet-current-calories');
     const currProtEl = document.getElementById('diet-current-protein');
     const currCarbEl = document.getElementById('diet-current-carbs');
@@ -486,53 +467,32 @@ class DietArchitect {
 
     const calDiffEl = document.getElementById('diet-calories-diff');
     const protDiffEl = document.getElementById('diet-protein-diff');
-    const carbDiffEl = document.getElementById('diet-carbs-diff');
-    const fatDiffEl = document.getElementById('diet-fat-diff');
 
     if (currCalEl) currCalEl.innerText = `${totalCalories.toLocaleString()} kcal`;
     if (currProtEl) currProtEl.innerText = `${totalProtein}g`;
     if (currCarbEl) currCarbEl.innerText = `${totalCarbs}g`;
     if (currFatEl) currFatEl.innerText = `${totalFat}g`;
 
-    // Progress Bars
     const calPct = Math.min(100, Math.round((totalCalories / (this.targets.calories || 1)) * 100));
     const protPct = Math.min(100, Math.round((totalProtein / (this.targets.protein || 1)) * 100));
-    const carbPct = Math.min(100, Math.round((totalCarbs / (this.targets.carbs || 1)) * 100));
-    const fatPct = Math.min(100, Math.round((totalFat / (this.targets.fat || 1)) * 100));
 
     const calBar = document.getElementById('progress-bar-calories');
     const protBar = document.getElementById('progress-bar-protein');
-    const carbBar = document.getElementById('progress-bar-carbs');
-    const fatBar = document.getElementById('progress-bar-fat');
 
     if (calBar) calBar.style.width = `${calPct}%`;
     if (protBar) protBar.style.width = `${protPct}%`;
-    if (carbBar) carbBar.style.width = `${carbPct}%`;
-    if (fatBar) fatBar.style.width = `${fatPct}%`;
 
-    // Differences / Remaining
     if (calDiffEl) {
       const cDiff = this.targets.calories - totalCalories;
-      calDiffEl.innerText = cDiff >= 0 ? `${cDiff} kcal remaining` : `+${Math.abs(cDiff)} kcal over`;
-      calDiffEl.className = cDiff >= 0 ? 'text-xs text-amber-300 font-mono' : 'text-xs text-red-400 font-mono font-bold';
+      calDiffEl.innerText = cDiff >= 0 ? `${cDiff} kcal remaining` : `+${Math.abs(cDiff)} kcal surplus`;
+      calDiffEl.className = cDiff >= 0 ? 'text-xs text-amber-200/90 font-mono' : 'text-xs text-rose-400 font-mono font-semibold';
     }
 
     if (protDiffEl) {
       const pDiff = this.targets.protein - totalProtein;
-      protDiffEl.innerText = pDiff >= 0 ? `${pDiff}g needed` : `+${Math.abs(pDiff)}g target met!`;
+      protDiffEl.innerText = pDiff >= 0 ? `${pDiff}g needed` : `Target reached (+${Math.abs(pDiff)}g)`;
     }
 
-    if (carbDiffEl) {
-      const cDiff = this.targets.carbs - totalCarbs;
-      carbDiffEl.innerText = cDiff >= 0 ? `${cDiff}g remaining` : `+${Math.abs(cDiff)}g over`;
-    }
-
-    if (fatDiffEl) {
-      const fDiff = this.targets.fat - totalFat;
-      fatDiffEl.innerText = fDiff >= 0 ? `${fDiff}g remaining` : `+${Math.abs(fDiff)}g over`;
-    }
-
-    // Update Chart.js Macro Breakdown
     this.renderMacroChart(totalProtein, totalCarbs, totalFat);
   }
 
@@ -552,20 +512,20 @@ class DietArchitect {
 
     const data = {
       labels: [
-        `Protein (${protPercent}%)`,
-        `Carbs (${carbPercent}%)`,
-        `Healthy Fats (${fatPercent}%)`
+        `Protein ${protPercent}%`,
+        `Carbs ${carbPercent}%`,
+        `Fats ${fatPercent}%`
       ],
       datasets: [{
         data: [protein * 4, carbs * 4, fat * 9],
         backgroundColor: [
-          '#3B82F6', // Blue
-          '#F59E0B', // Amber
-          '#EF4444'  // Red
+          '#38BDF8', // Cyan / Sky Blue
+          '#C9A86A', // Champagne Gold
+          '#F87171'  // Coral Red
         ],
-        borderColor: '#0C0D12',
-        borderWidth: 3,
-        hoverOffset: 6
+        borderColor: '#0E1016',
+        borderWidth: 2,
+        hoverOffset: 4
       }]
     };
 
@@ -583,12 +543,19 @@ class DietArchitect {
             legend: {
               position: 'bottom',
               labels: {
-                color: '#CBD5E1',
-                font: { family: 'Montserrat', size: 11, weight: '600' },
-                padding: 12
+                color: '#94A3B8',
+                font: { family: 'Plus Jakarta Sans', size: 11, weight: '500' },
+                padding: 10,
+                usePointStyle: true,
+                pointStyle: 'circle'
               }
             },
             tooltip: {
+              backgroundColor: '#141720',
+              borderColor: 'rgba(255,255,255,0.1)',
+              borderWidth: 1,
+              titleColor: '#F8FAFC',
+              bodyColor: '#CBD5E1',
               callbacks: {
                 label: function(context) {
                   return ` ${context.label}: ${context.raw} kcal`;
@@ -596,7 +563,7 @@ class DietArchitect {
               }
             }
           },
-          cutout: '68%'
+          cutout: '72%'
         }
       });
     }
@@ -606,10 +573,8 @@ class DietArchitect {
     const preset = PRESET_DIETS.find(p => p.id === presetId);
     if (!preset) return;
 
-    // Reset current meals
     Object.keys(this.meals).forEach(k => { this.meals[k] = []; });
 
-    // Populate from preset
     Object.keys(preset.meals).forEach(mealKey => {
       if (this.meals[mealKey]) {
         preset.meals[mealKey].forEach(item => {
@@ -618,7 +583,6 @@ class DietArchitect {
       }
     });
 
-    // Update targets to match preset philosophy
     this.targets.calories = preset.targetCalories;
     this.targets.protein = preset.targetProtein;
     this.targets.carbs = preset.targetCarbs;
@@ -628,26 +592,16 @@ class DietArchitect {
     this.renderMeals();
     this.updateSummaryAndCharts();
     this.saveToStorage();
-
-    if (window.confetti) {
-      window.confetti({
-        particleCount: 80,
-        spread: 60,
-        origin: { y: 0.6 },
-        colors: ['#D4AF37', '#FCE38A', '#FFFFFF']
-      });
-    }
-
-    this.showToast(`Loaded Preset: "${preset.name}"!`);
+    this.showToast(`Protocol loaded: "${preset.name}"`);
   }
 
   clearDiet() {
-    if (confirm("Are you sure you want to clear your current diet plan?")) {
+    if (confirm("Reset current daily nutrition protocol?")) {
       Object.keys(this.meals).forEach(k => { this.meals[k] = []; });
       this.renderMeals();
       this.updateSummaryAndCharts();
       this.saveToStorage();
-      this.showToast("Diet plan cleared.");
+      this.showToast("Protocol reset.");
     }
   }
 
@@ -656,15 +610,13 @@ class DietArchitect {
     if (!container) return;
 
     container.innerHTML = PRESET_DIETS.map(preset => `
-      <button type="button" class="btn-load-preset px-3 py-2 rounded-lg bg-obsidian-800 border border-gold-glow/30 hover:border-amber-400 text-left transition flex items-center space-x-3 group"
+      <button type="button" class="btn-load-preset p-3 rounded-lg bg-[#0E1016] border border-white/5 hover:border-amber-400/40 text-left transition flex items-center justify-between group"
         data-id="${preset.id}">
-        <div class="w-8 h-8 rounded-full bg-amber-400/10 group-hover:bg-amber-400/20 text-amber-300 flex items-center justify-center font-bold text-xs">
-          <i class="fa-solid fa-bolt"></i>
-        </div>
         <div>
-          <div class="text-xs font-bold text-gray-200 group-hover:text-amber-300 transition">${preset.name}</div>
-          <div class="text-[11px] text-gray-400">${preset.targetCalories} kcal • ${preset.targetProtein}g P</div>
+          <div class="text-xs font-bold text-slate-200 group-hover:text-amber-200 transition">${preset.name}</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-0.5">${preset.targetCalories} kcal • ${preset.targetProtein}g Protein</div>
         </div>
+        <i class="fa-solid fa-arrow-right text-xs text-slate-500 group-hover:text-amber-300 transition group-hover:translate-x-0.5"></i>
       </button>
     `).join('');
 
@@ -696,9 +648,8 @@ class DietArchitect {
 
       if (filtered.length === 0) {
         listContainer.innerHTML = `
-          <div class="text-center py-8 text-gray-400 text-sm">
-            <i class="fa-solid fa-magnifying-glass mb-2 text-xl text-gray-500 block"></i>
-            No matching food items found. Use "+ Custom Food" to add your own!
+          <div class="text-center py-8 text-slate-500 text-xs">
+            No matching food items found. Use "+ Custom Item" to define your own.
           </div>
         `;
         return;
@@ -707,28 +658,25 @@ class DietArchitect {
       listContainer.innerHTML = filtered.map(food => {
         const serving = isImperial ? `${food.serving} ${food.unit}` : `${food.metricServing} ${food.metricUnit}`;
         return `
-          <div class="flex items-center justify-between p-3 rounded-lg bg-black/40 hover:bg-black/80 border border-white/5 hover:border-amber-400/40 transition">
-            <div class="flex items-center space-x-3">
-              <div class="w-9 h-9 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center text-sm">
-                <i class="fa-solid fa-${food.icon}"></i>
-              </div>
+          <div class="flex items-center justify-between p-2.5 rounded-lg bg-black/40 hover:bg-black/70 border border-white/5 transition">
+            <div class="flex items-center space-x-2.5">
               <div>
-                <h5 class="text-sm font-semibold text-white">${food.name}</h5>
-                <p class="text-xs text-gray-400">Serving: <span class="text-amber-200/80 font-mono">${serving}</span></p>
+                <h5 class="text-xs font-semibold text-slate-200">${food.name}</h5>
+                <p class="text-[11px] text-slate-400">Serving: <span class="font-mono text-slate-300">${serving}</span></p>
               </div>
             </div>
 
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-3.5">
               <div class="text-right text-xs font-mono">
-                <div class="text-amber-300 font-bold">${food.calories} cal</div>
-                <div class="text-gray-400 text-[10px] space-x-1.5">
-                  <span class="text-blue-400">${food.protein}P</span>
-                  <span class="text-amber-400">${food.carbs}C</span>
-                  <span class="text-red-400">${food.fat}F</span>
+                <div class="text-amber-200 font-bold">${food.calories} cal</div>
+                <div class="text-slate-400 text-[10px] space-x-1">
+                  <span class="text-sky-400">${food.protein}P</span>
+                  <span class="text-amber-200/90">${food.carbs}C</span>
+                  <span class="text-rose-400">${food.fat}F</span>
                 </div>
               </div>
 
-              <button type="button" class="btn-select-food px-3 py-1.5 rounded bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs transition"
+              <button type="button" class="btn-select-food px-2.5 py-1 rounded bg-amber-400/20 hover:bg-amber-400 text-amber-200 hover:text-black font-semibold text-xs transition border border-amber-400/30"
                 data-food-id="${food.id}">
                 Add
               </button>
@@ -777,7 +725,6 @@ class DietArchitect {
   }
 
   setupEventListeners() {
-    // Goal Change
     const goalSelect = document.getElementById('diet-goal-select');
     if (goalSelect) {
       goalSelect.addEventListener('change', (e) => {
@@ -786,7 +733,6 @@ class DietArchitect {
       });
     }
 
-    // Activity Level Change
     const activitySelect = document.getElementById('diet-activity-select');
     if (activitySelect) {
       activitySelect.addEventListener('change', (e) => {
@@ -795,7 +741,6 @@ class DietArchitect {
       });
     }
 
-    // Gender
     const genderSelect = document.getElementById('diet-gender-select');
     if (genderSelect) {
       genderSelect.addEventListener('change', (e) => {
@@ -804,7 +749,6 @@ class DietArchitect {
       });
     }
 
-    // Age
     const ageInput = document.getElementById('diet-age-input');
     if (ageInput) {
       ageInput.addEventListener('input', (e) => {
@@ -813,7 +757,6 @@ class DietArchitect {
       });
     }
 
-    // Weight & Height (Imperial)
     const weightLbs = document.getElementById('diet-weight-lbs');
     if (weightLbs) {
       weightLbs.addEventListener('input', (e) => {
@@ -837,7 +780,6 @@ class DietArchitect {
       });
     }
 
-    // Weight & Height (Metric)
     const weightKg = document.getElementById('diet-weight-kg');
     if (weightKg) {
       weightKg.addEventListener('input', (e) => {
@@ -854,19 +796,16 @@ class DietArchitect {
       });
     }
 
-    // Clear diet button
     const clearBtn = document.getElementById('btn-clear-diet');
     if (clearBtn) {
       clearBtn.addEventListener('click', () => this.clearDiet());
     }
 
-    // Print & Export Diet button
     const exportBtn = document.getElementById('btn-export-diet');
     if (exportBtn) {
       exportBtn.addEventListener('click', () => this.exportDietPrintout());
     }
 
-    // Close modals
     document.querySelectorAll('.btn-close-modal').forEach(btn => {
       btn.addEventListener('click', () => {
         this.closeFoodModal();
@@ -874,7 +813,6 @@ class DietArchitect {
       });
     });
 
-    // Custom Food Form Submit
     const customFoodForm = document.getElementById('custom-food-form');
     if (customFoodForm) {
       customFoodForm.addEventListener('submit', (e) => {
@@ -896,7 +834,6 @@ class DietArchitect {
   }
 
   exportDietPrintout() {
-    // Generate clean printable view
     const printArea = document.getElementById('diet-plan-printout');
     if (!printArea) {
       window.print();
@@ -907,7 +844,6 @@ class DietArchitect {
     let totalProt = 0;
     let totalCarb = 0;
     let totalFat = 0;
-
     let mealHtml = '';
     const groceryList = new Set();
 
@@ -926,29 +862,29 @@ class DietArchitect {
       totalFat += mealFat;
 
       mealHtml += `
-        <div style="margin-bottom: 20px; padding: 14px; border: 1px solid #ddd; border-radius: 8px;">
-          <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #D4AF37; padding-bottom: 6px; margin-bottom: 10px;">
-            <strong style="font-size: 16px; color: #111;">${this.mealNames[mealKey]}</strong>
-            <span style="font-weight: bold; color: #D4AF37;">${Math.round(mealCals)} kcal (${Math.round(mealProt)}g P | ${Math.round(mealCarb)}g C | ${Math.round(mealFat)}g F)</span>
+        <div style="margin-bottom: 16px; padding: 12px; border: 1px solid #E2E8F0; border-radius: 6px;">
+          <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #CBD5E1; padding-bottom: 6px; margin-bottom: 8px;">
+            <strong style="font-size: 14px; color: #0F172A;">${this.mealNames[mealKey]}</strong>
+            <span style="font-weight: 600; color: #9C7D42; font-family: monospace; font-size: 13px;">${Math.round(mealCals)} kcal (${Math.round(mealProt)}g P | ${Math.round(mealCarb)}g C | ${Math.round(mealFat)}g F)</span>
           </div>
-          <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
             <thead>
-              <tr style="background: #f4f4f4; text-align: left;">
-                <th style="padding: 6px;">Food Item</th>
-                <th style="padding: 6px;">Serving</th>
-                <th style="padding: 6px;">Calories</th>
-                <th style="padding: 6px;">Macros (P / C / F)</th>
+              <tr style="background: #F8FAFC; text-align: left; color: #475569;">
+                <th style="padding: 6px;">Item</th>
+                <th style="padding: 6px;">Portion</th>
+                <th style="padding: 6px;">Energy</th>
+                <th style="padding: 6px;">P / C / F</th>
               </tr>
             </thead>
             <tbody>
               ${items.map(item => {
                 groceryList.add(item.name);
                 return `
-                  <tr style="border-bottom: 1px solid #eee;">
-                    <td style="padding: 6px;"><strong>${item.name}</strong></td>
-                    <td style="padding: 6px;">${item.servingDisplay}</td>
-                    <td style="padding: 6px;">${Math.round(item.calories)} cal</td>
-                    <td style="padding: 6px;">${Math.round(item.protein)}g / ${Math.round(item.carbs)}g / ${Math.round(item.fat)}g</td>
+                  <tr style="border-bottom: 1px solid #F1F5F9;">
+                    <td style="padding: 6px; color: #1E293B;"><strong>${item.name}</strong></td>
+                    <td style="padding: 6px; color: #475569;">${item.servingDisplay}</td>
+                    <td style="padding: 6px; font-family: monospace;">${Math.round(item.calories)} cal</td>
+                    <td style="padding: 6px; font-family: monospace;">${Math.round(item.protein)}g / ${Math.round(item.carbs)}g / ${Math.round(item.fat)}g</td>
                   </tr>
                 `;
               }).join('')}
@@ -961,59 +897,51 @@ class DietArchitect {
     const groceryArray = Array.from(groceryList);
 
     printArea.innerHTML = `
-      <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; color: #222;">
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #D4AF37; padding-bottom: 15px; margin-bottom: 20px;">
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; color: #0F172A;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #0F172A; padding-bottom: 14px; margin-bottom: 18px;">
           <div>
-            <h1 style="margin: 0; font-size: 24px; color: #000; letter-spacing: 1px;">N24 FITNESS</h1>
-            <p style="margin: 3px 0 0 0; color: #666; font-size: 12px; letter-spacing: 2px;">STRONGER • HEALTHIER • BETTER</p>
+            <h1 style="margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.02em;">N24 FITNESS</h1>
+            <p style="margin: 2px 0 0 0; color: #64748B; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;">Precision Nutrition Protocol — US Client Care</p>
           </div>
-          <div style="text-align: right;">
-            <div style="font-size: 14px; font-weight: bold; color: #D4AF37;">OFFICIAL CLIENT NUTRITION PROTOCOL</div>
-            <div style="font-size: 12px; color: #666;">Date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
-            <div style="font-size: 12px; color: #666;">Goal: ${this.profile.goal.toUpperCase()}</div>
+          <div style="text-align: right; font-size: 12px; color: #64748B;">
+            <div><strong>Prescription Date:</strong> ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</div>
+            <div><strong>Target Objective:</strong> ${this.profile.goal.toUpperCase()}</div>
           </div>
         </div>
 
-        <!-- Daily Target Summary Box -->
-        <div style="background: #FAF8F5; border: 1px solid #D4AF37; padding: 15px; border-radius: 8px; margin-bottom: 25px; display: flex; justify-content: space-around; text-align: center;">
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 14px; border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-around; text-align: center;">
           <div>
-            <div style="font-size: 12px; color: #666; text-transform: uppercase;">Total Daily Calories</div>
-            <div style="font-size: 20px; font-weight: bold; color: #111;">${Math.round(totalCals)} kcal</div>
-            <div style="font-size: 11px; color: #888;">Target: ${this.targets.calories} kcal</div>
+            <div style="font-size: 11px; color: #64748B; text-transform: uppercase; font-weight: 600;">Daily Energy</div>
+            <div style="font-size: 18px; font-weight: 700; color: #0F172A; font-family: monospace;">${Math.round(totalCals)} kcal</div>
           </div>
           <div>
-            <div style="font-size: 12px; color: #666; text-transform: uppercase;">Protein Target</div>
-            <div style="font-size: 20px; font-weight: bold; color: #2563EB;">${Math.round(totalProt)}g</div>
-            <div style="font-size: 11px; color: #888;">Target: ${this.targets.protein}g</div>
+            <div style="font-size: 11px; color: #64748B; text-transform: uppercase; font-weight: 600;">Protein</div>
+            <div style="font-size: 18px; font-weight: 700; color: #0284C7; font-family: monospace;">${Math.round(totalProt)}g</div>
           </div>
           <div>
-            <div style="font-size: 12px; color: #666; text-transform: uppercase;">Carbs Target</div>
-            <div style="font-size: 20px; font-weight: bold; color: #D97706;">${Math.round(totalCarb)}g</div>
-            <div style="font-size: 11px; color: #888;">Target: ${this.targets.carbs}g</div>
+            <div style="font-size: 11px; color: #64748B; text-transform: uppercase; font-weight: 600;">Carbohydrates</div>
+            <div style="font-size: 18px; font-weight: 700; color: #D97706; font-family: monospace;">${Math.round(totalCarb)}g</div>
           </div>
           <div>
-            <div style="font-size: 12px; color: #666; text-transform: uppercase;">Healthy Fats Target</div>
-            <div style="font-size: 20px; font-weight: bold; color: #DC2626;">${Math.round(totalFat)}g</div>
-            <div style="font-size: 11px; color: #888;">Target: ${this.targets.fat}g</div>
+            <div style="font-size: 11px; color: #64748B; text-transform: uppercase; font-weight: 600;">Fats</div>
+            <div style="font-size: 18px; font-weight: 700; color: #E11D48; font-family: monospace;">${Math.round(totalFat)}g</div>
           </div>
         </div>
 
-        <!-- Meals Breakdown -->
-        <h3 style="margin-bottom: 15px; font-size: 18px; border-left: 4px solid #D4AF37; padding-left: 10px;">DAILY MEAL SCHEDULE</h3>
-        ${mealHtml || '<p>No meals added yet.</p>'}
+        <h3 style="margin-bottom: 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; color: #0F172A;">Daily Meal Architecture</h3>
+        ${mealHtml || '<p>No meals configured.</p>'}
 
-        <!-- Grocery Checklist -->
         ${groceryArray.length > 0 ? `
-          <div style="margin-top: 25px; padding: 15px; background: #f9f9f9; border-radius: 8px; border: 1px dashed #ccc;">
-            <h4 style="margin: 0 0 10px 0; font-size: 14px; text-transform: uppercase; color: #333;">🛒 US Grocery Checklist for this Plan:</h4>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 12px;">
+          <div style="margin-top: 20px; padding: 14px; background: #F8FAFC; border-radius: 6px; border: 1px solid #E2E8F0;">
+            <h4 style="margin: 0 0 8px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: #334155;">Grocery Provisioning Checklist</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 11px; color: #475569;">
               ${groceryArray.map(g => `<div>☐ ${g}</div>`).join('')}
             </div>
           </div>
         ` : ''}
 
-        <div style="margin-top: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 15px; font-size: 11px; color: #777;">
-          N24 FITNESS • Personalized Online Fitness & Nutrition Coaching • www.n24fitness.com
+        <div style="margin-top: 24px; text-align: center; border-top: 1px solid #E2E8F0; padding-top: 12px; font-size: 11px; color: #94A3B8;">
+          N24 FITNESS LLC • Confidential Client Coaching Protocol • www.n24fitness.com
         </div>
       </div>
     `;
@@ -1026,15 +954,15 @@ class DietArchitect {
     if (!toast) {
       toast = document.createElement('div');
       toast.id = 'n24-toast';
-      toast.className = 'fixed bottom-5 right-5 z-50 px-4 py-3 rounded-lg bg-obsidian-800 text-white border border-amber-400 shadow-2xl transition-all duration-300 transform translate-y-12 opacity-0 flex items-center space-x-2 text-sm';
+      toast.className = 'fixed bottom-5 right-5 z-50 px-3.5 py-2.5 rounded-lg bg-[#141720] text-slate-100 border border-white/10 shadow-xl transition-all duration-300 transform translate-y-8 opacity-0 flex items-center space-x-2 text-xs font-medium';
       document.body.appendChild(toast);
     }
-    toast.innerHTML = `<i class="fa-solid fa-circle-check text-amber-400"></i><span>${message}</span>`;
-    toast.classList.remove('translate-y-12', 'opacity-0');
+    toast.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-400"></span><span>${message}</span>`;
+    toast.classList.remove('translate-y-8', 'opacity-0');
     
     setTimeout(() => {
-      toast.classList.add('translate-y-12', 'opacity-0');
-    }, 2800);
+      toast.classList.add('translate-y-8', 'opacity-0');
+    }, 2400);
   }
 
   saveToStorage() {
@@ -1047,7 +975,7 @@ class DietArchitect {
     try {
       localStorage.setItem('N24_DIET_PLAN_STATE', JSON.stringify(state));
     } catch (e) {
-      console.warn("Could not save to localStorage", e);
+      console.warn("Storage error", e);
     }
   }
 
@@ -1061,16 +989,13 @@ class DietArchitect {
         if (parsed.meals) this.meals = parsed.meals;
         if (parsed.unitSystem) this.unitSystem = parsed.unitSystem;
       } else {
-        // Load default preset on initial first visit for incredible immediate impression!
         this.loadPreset('lean-shred-us');
       }
     } catch (e) {
-      console.warn("Could not load from localStorage", e);
+      console.warn("Storage error", e);
     }
   }
 }
 
-// Instantiate and expose globally
 export const dietArchitect = new DietArchitect();
 window.N24_DIET_ARCHITECT = dietArchitect;
-

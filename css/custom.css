@@ -1,263 +1,243 @@
-/* N24 FITNESS - Luxury Gold & Obsidian Custom Stylesheet */
-
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+/* N24 FITNESS - Executive Dark Theme Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  --color-gold-light: #FCE38A;
-  --color-gold-primary: #D4AF37;
-  --color-gold-metallic: #C59B27;
-  --color-gold-dark: #8C6D1F;
-  --color-gold-glow: rgba(212, 175, 55, 0.35);
+  /* Refined Champagne Gold Palette (Sophisticated, non-neon) */
+  --gold-primary: #C9A86A;
+  --gold-light: #DFCA9B;
+  --gold-dark: #9C7D42;
+  --gold-subtle: rgba(201, 168, 106, 0.12);
+  --gold-border: rgba(201, 168, 106, 0.28);
+  --gold-glow: rgba(201, 168, 106, 0.16);
+
+  /* Matte Obsidian & Carbon Surfaces */
+  --bg-base: #08090C;
+  --bg-surface-1: #0E1016;
+  --bg-surface-2: #141720;
+  --bg-surface-3: #1B1F2B;
   
-  --color-silver-light: #FFFFFF;
-  --color-silver-mid: #E2E8F0;
-  --color-silver-dark: #94A3B8;
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
 
-  --color-obsidian-950: #060709;
-  --color-obsidian-900: #0C0D12;
-  --color-obsidian-850: #12141C;
-  --color-obsidian-800: #181A24;
-  --color-obsidian-card: rgba(18, 20, 28, 0.85);
-
-  --font-display: 'Cinzel', serif;
-  --font-bebas: 'Bebas Neue', sans-serif;
-  --font-sans: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Grotesk', ui-monospace, SFMono-Regular, monospace;
 }
 
-/* Global Reset & Base */
-* {
+/* Global Reset */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-obsidian-950);
-  color: #F1F5F9;
-  overflow-x: hidden;
+  background-color: var(--bg-base);
+  color: #E2E8F0;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 85% 65%, rgba(212, 175, 55, 0.03) 0%, transparent 45%),
-    linear-gradient(rgba(12, 13, 18, 0.98), rgba(6, 7, 9, 0.99));
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201, 168, 106, 0.06), transparent 70%),
+    linear-gradient(180deg, #08090C 0%, #0B0D12 100%);
   background-attachment: fixed;
 }
 
-/* Typography Helpers */
-.font-display { font-family: var(--font-display); }
-.font-bebas { font-family: var(--font-bebas); letter-spacing: 0.05em; }
-.font-sans { font-family: var(--font-sans); }
-.font-body { font-family: var(--font-body); }
+/* Tabular Numbers for Data & Statistics */
+.tabular-nums, .font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
 
-/* Metallic Text Gradients */
+/* Subtle Champagne Gold Highlights */
+.gold-text {
+  color: var(--gold-light);
+}
+
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FFF1B0 0%, #D4AF37 45%, #AA771C 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
-}
-
-.silver-gradient-text {
-  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 45%, #94A3B8 100%);
+  background: linear-gradient(135deg, #F5E6C8 0%, #C9A86A 50%, #B89350 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gold-silver-gradient {
-  background: linear-gradient(90deg, #FDE68A 0%, #D4AF37 40%, #E2E8F0 80%, #FFFFFF 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Clean Executive Cards */
+.exec-card {
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Luxury Metallic Buttons */
-.btn-gold {
-  background: linear-gradient(135deg, #F5D061 0%, #D4AF37 50%, #B3861B 100%);
-  color: #0A0A0C;
+.exec-card:hover {
+  border-color: var(--border-medium);
+}
+
+.exec-card-highlight {
+  background: linear-gradient(180deg, rgba(20, 23, 32, 0.9) 0%, rgba(14, 16, 22, 0.95) 100%);
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px var(--gold-glow);
+}
+
+/* High-End Buttons */
+.btn-primary-gold {
+  background: #C9A86A;
+  color: #08090C;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  border: 1px solid #FFE082;
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  border: 1px solid #DFCA9B;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.55);
-  background: linear-gradient(135deg, #FFE58F 0%, #E5BF47 50%, #C49424 100%);
+.btn-primary-gold:hover {
+  background: #D9BB80;
+  box-shadow: 0 4px 16px rgba(201, 168, 106, 0.28);
+  transform: translateY(-1px);
 }
 
-.btn-gold:active {
+.btn-primary-gold:active {
   transform: translateY(0);
 }
 
-.btn-gold::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 40%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: rotate(30deg);
-  transition: transform 0.75s ease;
-}
-
-.btn-gold:hover::before {
-  transform: rotate(30deg) translate(300%, 0);
-}
-
-.btn-dark-outline {
-  background: rgba(18, 20, 28, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  color: #F8FAFC;
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #F1F5F9;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(8px);
+  font-size: 0.8125rem;
+  letter-spacing: 0.03em;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.btn-dark-outline:hover {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: #D4AF37;
-  color: #FDE68A;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-medium);
+  color: #FFFFFF;
 }
 
-/* Glassmorphism Cards */
-.n24-card {
-  background: var(--color-obsidian-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.18);
-  border-radius: 14px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+/* Custom Clean Form Inputs */
+.exec-input {
+  background: #08090C;
+  border: 1px solid var(--border-subtle);
+  color: #F8FAFC;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8125rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 }
 
-.n24-card:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.12);
+.exec-input:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 2px rgba(201, 168, 106, 0.2);
 }
 
-.n24-card-gold-glow {
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  box-shadow: 0 0 35px rgba(212, 175, 55, 0.15);
+.exec-select {
+  background: #08090C;
+  border: 1px solid var(--border-subtle);
+  color: #F8FAFC;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8125rem;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
 }
 
-/* Gold Border Shimmer */
-.gold-shimmer-border {
-  position: relative;
+.exec-select:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 2px rgba(201, 168, 106, 0.2);
 }
 
-.gold-shimmer-border::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(212,175,55,0.6) 0%, transparent 50%, rgba(212,175,55,0.4) 100%);
-  pointer-events: none;
-  z-index: 1;
+/* Segmented Control / Tabs */
+.segmented-control {
+  background: #0A0C11;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 3px;
+  display: inline-flex;
 }
 
-/* Custom Scrollbar */
+.segmented-btn {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 6px;
+  color: #94A3B8;
+  transition: all 0.15s ease;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.segmented-btn.active {
+  background: var(--bg-surface-2);
+  color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090A0E;
+  background: #08090C;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #272A36;
-  border-radius: 4px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: #1F2430;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #2D3344;
 }
 
-/* Macro Indicator Badges */
-.badge-protein {
-  background: rgba(59, 130, 246, 0.15);
-  color: #93C5FD;
-  border: 1px solid rgba(59, 130, 246, 0.35);
-}
-
-.badge-carbs {
-  background: rgba(245, 158, 11, 0.15);
-  color: #FCD34D;
-  border: 1px solid rgba(245, 158, 11, 0.35);
-}
-
-.badge-fats {
-  background: rgba(239, 68, 68, 0.15);
-  color: #FCA5A5;
-  border: 1px solid rgba(239, 68, 68, 0.35);
-}
-
-.badge-calories {
-  background: rgba(212, 175, 55, 0.15);
-  color: #FDE68A;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-/* Animated Pulse Glow for Key Targets */
-@keyframes goldPulse {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.65);
-  }
-}
-
-.animate-gold-pulse {
-  animation: goldPulse 3s infinite ease-in-out;
-}
-
-/* Calorie Gauge Ring */
-.progress-ring__circle {
-  transition: stroke-dashoffset 0.5s ease-in-out;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-}
-
-/* Print Styles for Diet Export */
+/* Print Layout for Diet Protocol */
 @media print {
   body {
     background: #FFFFFF !important;
-    color: #111827 !important;
+    color: #0F172A !important;
   }
 
-  nav, footer, .no-print, #calorie-calculator, #hero-section, #us-consultation-section, #testimonials-section, #programs-section, #diet-builder-controls {
+  nav, header, footer, .no-print, #calorie-calculator, #energy-balance-section, #transformations, #pricing-tiers, #consultation-booking, #diet-builder-controls {
     display: none !important;
   }
 
   #diet-plan-printout {
     display: block !important;
-    position: static !important;
     width: 100% !important;
-    background: white !important;
-    color: black !important;
+    background: #FFFFFF !important;
+    color: #0F172A !important;
     box-shadow: none !important;
     border: none !important;
     padding: 0 !important;
   }
-
-  .print-only {
-    display: block !important;
-  }
-
-  .print-page-break {
-    page-break-before: always;
-  }
 }
-

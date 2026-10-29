@@ -6,11 +6,11 @@ class CalorieBurnCalculator {
     this.unitSystem = 'imperial'; // 'imperial' (lbs) or 'metric' (kg)
     this.weightLbs = 185;
     this.weightKg = 84;
-    this.age = 30;
+    this.age = 32;
 
     this.selectedExerciseId = 'heavy-compound-lifting';
     this.durationMinutes = 60;
-    this.intensityMultiplier = 1.0; // Moderate
+    this.intensityMultiplier = 1.0;
 
     this.loggedActivities = [];
   }
@@ -55,16 +55,16 @@ class CalorieBurnCalculator {
     select.innerHTML = '';
 
     const categories = {
-      strength: 'Strength & Hypertrophy',
-      cardio: 'Cardiovascular & Conditioning',
-      combat: 'Combat & Functional Athletics',
+      strength: 'Resistance & Hypertrophy',
+      cardio: 'Cardiopulmonary & Conditioning',
+      combat: 'Combat Athletics',
       endurance: 'Endurance & Swimming',
-      recovery: 'Mobility & Active Recovery'
+      recovery: 'Active Recovery & Mobility'
     };
 
     Object.keys(categories).forEach(catKey => {
       const group = document.createElement('optgroup');
-      group.label = `--- ${categories[catKey]} ---`;
+      group.label = `— ${categories[catKey]} —`;
 
       const exercises = EXERCISE_DATABASE.filter(ex => ex.category === catKey);
       exercises.forEach(ex => {
@@ -90,14 +90,14 @@ class CalorieBurnCalculator {
     const infoEl = document.getElementById('burn-exercise-meta');
     if (infoEl) {
       infoEl.innerHTML = `
-        <div class="flex flex-wrap items-center gap-3 text-xs">
-          <span class="px-2.5 py-1 rounded bg-amber-400/10 text-amber-300 font-semibold border border-amber-400/20">
-            <i class="fa-solid fa-gauge-high mr-1"></i> MET Value: <strong>${exercise.met}</strong>
+        <div class="flex flex-wrap items-center gap-2 text-xs pt-1">
+          <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 font-mono text-[11px] border border-white/10">
+            MET: <strong class="text-amber-200">${exercise.met}</strong>
           </span>
-          <span class="px-2.5 py-1 rounded bg-white/5 text-gray-300 border border-white/10">
-            <i class="fa-solid fa-heart-pulse mr-1 text-red-400"></i> ${exercise.targetZone}
+          <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 text-[11px] border border-white/10">
+            Zone: <span class="text-slate-200">${exercise.targetZone}</span>
           </span>
-          <span class="text-gray-400 italic">${exercise.intensityLabel}</span>
+          <span class="text-slate-400 text-[11px]">• ${exercise.intensityLabel}</span>
         </div>
       `;
     }
@@ -111,15 +111,15 @@ class CalorieBurnCalculator {
 
     const durationHours = this.durationMinutes / 60;
     
-    // Formula: MET * Weight (kg) * (Duration in minutes / 60) * Intensity Multiplier
+    // Official ACSM / Compendium MET equation
     const baseCalories = exercise.met * weightInKg * durationHours * this.intensityMultiplier;
     const finalCalories = Math.round(baseCalories);
 
-    // Fat Grams burned calculation (1g of body fat ~ 7.7 kcal deficit)
+    // Fat Grams burned calculation (1g of adipose deficit ~ 7.7 kcal)
     const fatGrams = Math.round((finalCalories / 7.7) * 10) / 10;
     const fatOz = Math.round((fatGrams * 0.035274) * 100) / 100;
 
-    // EPOC (Excess Post-exercise Oxygen Consumption) - Afterburn
+    // EPOC (Excess Post-exercise Oxygen Consumption)
     const epocCalories = Math.round(finalCalories * (exercise.epocRate || 0.10));
     const totalMetabolicImpact = finalCalories + epocCalories;
 
@@ -150,7 +150,7 @@ class CalorieBurnCalculator {
     if (epocEl) epocEl.innerText = `+${epocCalories} kcal`;
     if (rateEl) rateEl.innerText = `${burnRatePerMin} kcal/min`;
     if (totalImpactEl) totalImpactEl.innerText = `${totalMetabolicImpact.toLocaleString()} kcal`;
-    if (hrEl) hrEl.innerText = `~${estHr} BPM (${Math.round(targetHrPct * 100)}% Max HR)`;
+    if (hrEl) hrEl.innerText = `~${estHr} BPM (${Math.round(targetHrPct * 100)}% Max)`;
 
     return {
       exercise,
@@ -180,17 +180,8 @@ class CalorieBurnCalculator {
     this.updateEnergyBalance();
     this.saveLoggedActivities();
 
-    if (window.confetti) {
-      window.confetti({
-        particleCount: 50,
-        spread: 50,
-        origin: { y: 0.75 },
-        colors: ['#EF4444', '#F59E0B', '#D4AF37']
-      });
-    }
-
     if (window.N24_DIET_ARCHITECT) {
-      window.N24_DIET_ARCHITECT.showToast(`Logged ${calc.calories} kcal from ${calc.exercise.name}!`);
+      window.N24_DIET_ARCHITECT.showToast(`Logged ${calc.calories} kcal session`);
     }
   }
 
@@ -208,30 +199,30 @@ class CalorieBurnCalculator {
 
     if (this.loggedActivities.length === 0) {
       container.innerHTML = `
-        <div class="text-center py-6 text-gray-500 text-xs border border-dashed border-gray-800 rounded-lg">
-          No workouts logged to today's session yet. Adjust parameters above and click "+ Add to Today's Session".
+        <div class="text-center py-5 text-slate-500 text-xs border border-dashed border-white/5 rounded-lg bg-black/20">
+          No training sessions logged for today. Adjust parameters and click "Log to Training Record".
         </div>
       `;
       return;
     }
 
     container.innerHTML = this.loggedActivities.map((log, index) => `
-      <div class="flex items-center justify-between p-2.5 rounded-lg bg-black/50 border border-white/5 hover:border-amber-400/30 transition text-xs">
-        <div class="flex items-center space-x-3">
-          <span class="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_6px_#EF4444]"></span>
+      <div class="flex items-center justify-between p-2 rounded-md bg-black/40 border border-white/[0.04] text-xs">
+        <div class="flex items-center space-x-2.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80"></span>
           <div>
-            <div class="font-bold text-gray-200">${log.exerciseName}</div>
-            <div class="text-gray-400 text-[11px]">${log.duration} mins • Logged at ${log.timestamp}</div>
+            <div class="font-medium text-slate-200">${log.exerciseName}</div>
+            <div class="text-slate-400 text-[11px] font-mono">${log.duration} mins • ${log.timestamp}</div>
           </div>
         </div>
 
         <div class="flex items-center space-x-3">
-          <div class="text-right">
-            <div class="text-amber-300 font-bold font-mono text-sm">${log.calories} kcal</div>
-            <div class="text-gray-400 text-[10px] font-mono">+${log.epoc} afterburn</div>
+          <div class="text-right font-mono">
+            <span class="text-amber-200 font-bold">${log.calories} kcal</span>
+            <span class="text-slate-500 text-[10px] block">+${log.epoc} EPOC</span>
           </div>
-          <button type="button" class="btn-delete-log text-gray-500 hover:text-red-400 p-1" data-index="${index}" title="Remove entry">
-            <i class="fa-solid fa-xmark"></i>
+          <button type="button" class="btn-delete-log text-slate-500 hover:text-rose-400 p-1" data-index="${index}" title="Remove entry">
+            <i class="fa-solid fa-xmark text-xs"></i>
           </button>
         </div>
       </div>
@@ -251,7 +242,6 @@ class CalorieBurnCalculator {
   updateEnergyBalance() {
     const intakeCalories = window.N24_DIET_INTAKE_CALS || 1850;
     const burnedCalories = this.loggedActivities.reduce((sum, item) => sum + item.calories, 0);
-
     const netCalories = intakeCalories - burnedCalories;
 
     const intakeEl = document.getElementById('energy-calories-in');
@@ -265,19 +255,18 @@ class CalorieBurnCalculator {
 
     if (statusEl) {
       if (burnedCalories === 0) {
-        statusEl.innerHTML = `<span class="text-gray-400">Log today's workout above to calculate your net deficit/surplus.</span>`;
+        statusEl.innerHTML = `<span class="text-slate-400">Log workout sessions above to calculate your net energy status.</span>`;
       } else if (netCalories < 1500) {
-        statusEl.innerHTML = `<span class="text-emerald-400 font-semibold"><i class="fa-solid fa-fire mr-1"></i> Accelerated Fat-Shred Deficit: High daily energy output! Make sure to hit your protein target.</span>`;
+        statusEl.innerHTML = `<span class="text-emerald-400 font-medium">Accelerated Fat-Loss Deficit — Ensure minimum daily protein intake is satisfied.</span>`;
       } else if (netCalories <= 2200) {
-        statusEl.innerHTML = `<span class="text-amber-300 font-semibold"><i class="fa-solid fa-dumbbell mr-1"></i> Optimal Body Recomposition: Perfect ratio of energy for recovery and lean muscle preservation.</span>`;
+        statusEl.innerHTML = `<span class="text-amber-200 font-medium">Optimal Athletic Recomposition — Favorable balance for lean muscle retention and fat reduction.</span>`;
       } else {
-        statusEl.innerHTML = `<span class="text-blue-400 font-semibold"><i class="fa-solid fa-chart-line mr-1"></i> Hypertrophy Mass Fueling: Sufficient surplus for maximal progressive overload and strength.</span>`;
+        statusEl.innerHTML = `<span class="text-sky-400 font-medium">Caloric Surplus — Favorable energetic environment for myofibrillar protein synthesis.</span>`;
       }
     }
   }
 
   setupListeners() {
-    // Exercise Dropdown
     const exerciseSelect = document.getElementById('burn-exercise-select');
     if (exerciseSelect) {
       exerciseSelect.addEventListener('change', (e) => {
@@ -287,7 +276,6 @@ class CalorieBurnCalculator {
       });
     }
 
-    // Duration slider and input
     const durationInput = document.getElementById('burn-duration-input');
     const durationSlider = document.getElementById('burn-duration-slider');
 
@@ -306,23 +294,21 @@ class CalorieBurnCalculator {
       });
     }
 
-    // Intensity buttons
     document.querySelectorAll('.btn-burn-intensity').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.btn-burn-intensity').forEach(b => {
-          b.classList.remove('bg-amber-500', 'text-black', 'border-amber-400');
-          b.classList.add('bg-white/5', 'text-gray-300', 'border-white/10');
+          b.classList.remove('bg-white/15', 'text-white', 'border-white/20');
+          b.classList.add('bg-white/5', 'text-slate-400', 'border-white/5');
         });
 
-        btn.classList.add('bg-amber-500', 'text-black', 'border-amber-400');
-        btn.classList.remove('bg-white/5', 'text-gray-300', 'border-white/10');
+        btn.classList.add('bg-white/15', 'text-white', 'border-white/20');
+        btn.classList.remove('bg-white/5', 'text-slate-400', 'border-white/5');
 
         this.intensityMultiplier = parseFloat(btn.getAttribute('data-intensity')) || 1.0;
         this.calculate();
       });
     });
 
-    // Weight inputs
     const weightLbs = document.getElementById('burn-weight-lbs');
     if (weightLbs) {
       weightLbs.addEventListener('input', (e) => {
@@ -339,7 +325,6 @@ class CalorieBurnCalculator {
       });
     }
 
-    // Age
     const ageInput = document.getElementById('burn-age-input');
     if (ageInput) {
       ageInput.addEventListener('input', (e) => {
@@ -348,17 +333,15 @@ class CalorieBurnCalculator {
       });
     }
 
-    // Add to session button
     const logBtn = document.getElementById('btn-add-activity-log');
     if (logBtn) {
       logBtn.addEventListener('click', () => this.logCurrentActivity());
     }
 
-    // Clear session button
     const clearBtn = document.getElementById('btn-clear-activities');
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
-        if (confirm("Clear today's logged activities?")) {
+        if (confirm("Reset today's workout log?")) {
           this.loggedActivities = [];
           this.renderLoggedActivities();
           this.updateEnergyBalance();
@@ -372,7 +355,7 @@ class CalorieBurnCalculator {
     try {
       localStorage.setItem('N24_LOGGED_WORKOUTS', JSON.stringify(this.loggedActivities));
     } catch (e) {
-      console.warn("Could not save to localStorage", e);
+      console.warn("Storage error", e);
     }
   }
 
@@ -382,11 +365,10 @@ class CalorieBurnCalculator {
       if (saved) {
         this.loggedActivities = JSON.parse(saved);
       } else {
-        // Preload an inspiring sample workout for first-time visitors!
         this.loggedActivities = [
           {
             id: 'sample-1',
-            exerciseName: 'Heavy Barbell Squats, Deadlifts & Presses',
+            exerciseName: 'Barbell Compound Training (Squat, Deadlift, Bench Press)',
             category: 'strength',
             duration: 50,
             calories: 412,
@@ -395,7 +377,7 @@ class CalorieBurnCalculator {
           },
           {
             id: 'sample-2',
-            exerciseName: '12-3-30 Incline Treadmill Walk (12% Incline, 3.0 mph)',
+            exerciseName: '12-3-30 Incline Treadmill Walk (12% Grade, 3.0 mph)',
             category: 'cardio',
             duration: 25,
             calories: 215,
@@ -405,11 +387,10 @@ class CalorieBurnCalculator {
         ];
       }
     } catch (e) {
-      console.warn("Could not load from localStorage", e);
+      console.warn("Storage error", e);
     }
   }
 }
 
 export const calorieCalculator = new CalorieBurnCalculator();
 window.N24_CALORIE_CALCULATOR_INSTANCE = calorieCalculator;
-

@@ -131,4 +131,3 @@ N24/
 - **Typography**: `Bebas Neue` (Athletic Power Headers), `Cinzel` (Luxury Accents), `Montserrat` (Clean Modern UI), `Inter` (Data Readouts).
 
 © 2026 N24 FITNESS LLC. All Rights Reserved.
-
