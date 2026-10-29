@@ -1,4 +1,4 @@
-// N24 FITNESS - Executive Application Coordinator
+// N24 FITNESS - Radiant Executive Application Coordinator
 import { dietArchitect } from './diet-builder.js';
 import { calorieCalculator } from './calorie-calculator.js';
 import { CLIENT_TESTIMONIALS, COACHING_TIERS } from './data.js';
@@ -22,15 +22,11 @@ function initUnitSwitcher() {
 
   const updateButtons = (unit) => {
     if (unit === 'imperial') {
-      imperialBtn?.classList.add('bg-white/10', 'text-white');
-      imperialBtn?.classList.remove('text-slate-400');
-      metricBtn?.classList.remove('bg-white/10', 'text-white');
-      metricBtn?.classList.add('text-slate-400');
+      imperialBtn?.classList.add('active');
+      metricBtn?.classList.remove('active');
     } else {
-      metricBtn?.classList.add('bg-white/10', 'text-white');
-      metricBtn?.classList.remove('text-slate-400');
-      imperialBtn?.classList.remove('bg-white/10', 'text-white');
-      imperialBtn?.classList.add('text-slate-400');
+      metricBtn?.classList.add('active');
+      imperialBtn?.classList.remove('active');
     }
   };
 
@@ -55,35 +51,44 @@ function renderTestimonials() {
   if (!container) return;
 
   container.innerHTML = CLIENT_TESTIMONIALS.map(t => `
-    <div class="exec-card p-6 flex flex-col justify-between border border-white/5 relative group bg-[#0C0E14] hover:border-white/15 transition duration-300">
+    <div class="bright-card p-6 sm:p-7 flex flex-col justify-between border border-white/15 relative group hover:border-amber-400/60 transition duration-300">
       <div>
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-[11px] font-mono text-amber-300/90 font-medium tracking-wide uppercase">
-            ${t.program}
-          </span>
-          <span class="text-[11px] text-slate-500 font-mono">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center space-x-1 text-amber-400 text-xs">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span class="text-amber-200/90 ml-2 font-mono text-[11px] font-bold">Verified US Athlete</span>
+          </div>
+          <span class="text-xs text-amber-300 font-mono font-bold bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">
             ${t.duration}
           </span>
         </div>
 
-        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+        <span class="text-xs font-mono text-amber-300 font-extrabold uppercase tracking-wider block mb-2">
+          ${t.program}
+        </span>
+
+        <p class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
           "${t.quote}"
         </p>
       </div>
 
-      <div class="pt-4 border-t border-white/[0.06]">
-        <div class="flex items-center justify-between mb-2.5">
+      <div class="pt-4 border-t border-white/10">
+        <div class="flex items-center justify-between mb-3">
           <div>
-            <h5 class="font-bold text-white text-sm">${t.name}</h5>
-            <div class="text-[11px] text-slate-400">
-              ${t.role} • <span class="text-slate-300">${t.location}</span>
+            <h5 class="font-extrabold text-white text-base">${t.name}</h5>
+            <div class="text-xs text-amber-200 font-semibold">
+              <i class="fa-solid fa-location-dot mr-1 text-amber-400"></i> ${t.location} • <span class="text-slate-300">${t.role}</span>
             </div>
           </div>
         </div>
 
-        <div class="bg-black/30 rounded p-2.5 text-xs font-mono text-slate-300 border border-white/[0.04] flex flex-wrap items-center justify-between gap-1">
-          <span class="text-slate-100 font-medium">${t.achievement}</span>
-          <span class="text-amber-200/80 text-[11px]">${t.metrics}</span>
+        <div class="bg-black/60 rounded-xl p-3 text-xs font-mono text-white border border-white/10 flex flex-wrap items-center justify-between gap-1 shadow-inner">
+          <span class="text-amber-300 font-black">${t.achievement}</span>
+          <span class="text-slate-300 text-xs font-semibold">${t.metrics}</span>
         </div>
       </div>
     </div>
@@ -96,41 +101,39 @@ function renderCoachingTiers() {
   if (!container) return;
 
   container.innerHTML = COACHING_TIERS.map(tier => `
-    <div class="exec-card p-6 sm:p-7 flex flex-col justify-between relative transition duration-300 bg-[#0C0E14] ${
-      tier.popular ? 'exec-card-highlight md:-translate-y-1' : 'border-white/5'
+    <div class="bright-card p-7 sm:p-8 flex flex-col justify-between relative transition duration-300 ${
+      tier.popular ? 'bright-card-gold md:-translate-y-2' : 'border border-white/15'
     }">
       ${tier.popular ? `
-        <div class="absolute -top-3 left-6 px-2.5 py-0.5 rounded bg-amber-400/20 border border-amber-400/30 text-amber-200 font-mono text-[10px] font-bold uppercase tracking-wider">
-          ${tier.badge}
+        <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-black font-black text-xs uppercase tracking-wider shadow-lg">
+          ★ ${tier.badge} ★
         </div>
       ` : ''}
 
       <div>
-        <div class="flex justify-between items-baseline mb-1">
-          <h4 class="text-base font-bold text-white">${tier.name}</h4>
-        </div>
-        <p class="text-xs text-slate-400 mb-5 min-h-[32px]">${tier.description}</p>
+        <h4 class="text-xl font-black text-white mb-2">${tier.name}</h4>
+        <p class="text-xs text-slate-300 mb-6 font-medium min-h-[36px]">${tier.description}</p>
 
-        <div class="flex items-baseline mb-6 pb-5 border-b border-white/[0.06]">
-          <span class="text-xl font-medium text-slate-400 font-mono">$</span>
-          <span class="text-4xl font-extrabold text-white font-mono tracking-tight ml-0.5">${tier.price}</span>
-          <span class="text-slate-400 text-xs ml-2 font-mono">${tier.period}</span>
+        <div class="flex items-baseline mb-6 pb-6 border-b border-white/10">
+          <span class="text-2xl font-bold text-amber-300 font-mono">$</span>
+          <span class="text-5xl font-black text-white font-mono tracking-tight ml-1">${tier.price}</span>
+          <span class="text-amber-200/90 text-xs ml-2 font-mono font-bold uppercase">${tier.period}</span>
         </div>
 
-        <ul class="space-y-2.5 mb-8 text-xs text-slate-300">
+        <ul class="space-y-3 mb-8 text-xs text-slate-200 font-semibold">
           ${tier.features.map(feat => `
             <li class="flex items-start space-x-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80 mt-1.5 flex-shrink-0"></span>
+              <i class="fa-solid fa-circle-check text-amber-400 text-sm mt-0.5 flex-shrink-0"></i>
               <span class="leading-relaxed">${feat}</span>
             </li>
           `).join('')}
         </ul>
       </div>
 
-      <button type="button" class="w-full py-2.5 rounded-md font-semibold text-xs tracking-wide transition ${
+      <button type="button" class="w-full py-3 rounded-xl font-extrabold text-xs uppercase tracking-wider transition ${
         tier.popular 
-          ? 'btn-primary-gold' 
-          : 'btn-secondary'
+          ? 'btn-gold-bright shadow-xl' 
+          : 'btn-bright-outline'
       } btn-tier-select" data-tier="${tier.name}">
         ${tier.cta}
       </button>

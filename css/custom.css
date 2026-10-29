@@ -1,28 +1,35 @@
-/* N24 FITNESS - Executive Dark Theme Stylesheet */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+/* N24 FITNESS - Radiant Luxury Gold & High-Contrast Visual Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&family=Bebas+Neue&display=swap');
 
 :root {
-  /* Refined Champagne Gold Palette (Sophisticated, non-neon) */
-  --gold-primary: #C9A86A;
-  --gold-light: #DFCA9B;
-  --gold-dark: #9C7D42;
-  --gold-subtle: rgba(201, 168, 106, 0.12);
-  --gold-border: rgba(201, 168, 106, 0.28);
-  --gold-glow: rgba(201, 168, 106, 0.16);
+  /* Radiant Vibrant Gold */
+  --gold-primary: #F5BD47;
+  --gold-bright: #FFD56B;
+  --gold-light: #FFF1CC;
+  --gold-dark: #C48C18;
+  --gold-glow: rgba(245, 189, 71, 0.4);
 
-  /* Matte Obsidian & Carbon Surfaces */
-  --bg-base: #08090C;
-  --bg-surface-1: #0E1016;
-  --bg-surface-2: #141720;
-  --bg-surface-3: #1B1F2B;
-  
-  /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.14);
+  /* Vivid Accent Colors */
+  --accent-cyan: #00D2FF;
+  --accent-emerald: #10B981;
+  --accent-rose: #FF4757;
+  --accent-orange: #FF793F;
 
-  /* Typography */
+  /* Rich Illuminated Surfaces */
+  --bg-deep: #07080C;
+  --bg-card: #12141D;
+  --bg-card-bright: #181B26;
+  --bg-card-hover: #1E2230;
+
+  /* Crisp Borders */
+  --border-light: rgba(255, 255, 255, 0.14);
+  --border-gold: rgba(245, 189, 71, 0.45);
+  --border-gold-bright: rgba(255, 213, 107, 0.7);
+
+  /* Fonts */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'Space Grotesk', ui-monospace, SFMono-Regular, monospace;
+  --font-mono: 'Space Grotesk', monospace;
+  --font-display: 'Bebas Neue', sans-serif;
 }
 
 /* Global Reset */
@@ -39,91 +46,105 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-base);
-  color: #E2E8F0;
+  background-color: var(--bg-deep);
+  color: #FFFFFF;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201, 168, 106, 0.06), transparent 70%),
-    linear-gradient(180deg, #08090C 0%, #0B0D12 100%);
+    radial-gradient(circle at 50% 0%, rgba(245, 189, 71, 0.18) 0%, transparent 60%),
+    radial-gradient(circle at 10% 30%, rgba(0, 210, 255, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 90% 70%, rgba(245, 189, 71, 0.1) 0%, transparent 50%),
+    linear-gradient(180deg, #090A0E 0%, #06070A 100%);
   background-attachment: fixed;
 }
 
-/* Tabular Numbers for Data & Statistics */
+/* Tabular Numbers */
 .tabular-nums, .font-mono {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
-/* Subtle Champagne Gold Highlights */
-.gold-text {
-  color: var(--gold-light);
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
 }
 
+/* Radiant Gold Gradient Text */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #F5E6C8 0%, #C9A86A 50%, #B89350 100%);
+  background: linear-gradient(135deg, #FFF6D6 0%, #FFD56B 40%, #F5BD47 70%, #E5A823 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 12px rgba(245, 189, 71, 0.3));
+}
+
+.silver-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #CBD5E1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Clean Executive Cards */
-.exec-card {
-  background: var(--bg-surface-1);
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+/* Bright High-Contrast Cards */
+.bright-card {
+  background: linear-gradient(180deg, rgba(24, 27, 38, 0.95) 0%, rgba(16, 18, 27, 0.98) 100%);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 255, 255, 0.08) inset;
+  transition: all 0.25s ease;
 }
 
-.exec-card:hover {
-  border-color: var(--border-medium);
+.bright-card:hover {
+  border-color: rgba(245, 189, 71, 0.5);
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 189, 71, 0.2);
 }
 
-.exec-card-highlight {
-  background: linear-gradient(180deg, rgba(20, 23, 32, 0.9) 0%, rgba(14, 16, 22, 0.95) 100%);
-  border: 1px solid var(--gold-border);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px var(--gold-glow);
+.bright-card-gold {
+  background: linear-gradient(180deg, rgba(30, 34, 48, 0.95) 0%, rgba(18, 21, 31, 0.98) 100%);
+  border: 1px solid var(--border-gold-bright);
+  box-shadow: 0 12px 40px -5px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 189, 71, 0.25), 0 0 1px 1px rgba(255, 213, 107, 0.3) inset;
 }
 
-/* High-End Buttons */
-.btn-primary-gold {
-  background: #C9A86A;
-  color: #08090C;
-  font-weight: 700;
-  font-size: 0.8125rem;
+/* Radiant Gold Button */
+.btn-gold-bright {
+  background: linear-gradient(135deg, #FFE485 0%, #FFD56B 40%, #F5BD47 80%, #D89815 100%);
+  color: #07080C;
+  font-weight: 800;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
-  padding: 0.65rem 1.4rem;
-  border-radius: 8px;
-  border: 1px solid #DFCA9B;
+  padding: 0.75rem 1.6rem;
+  border-radius: 10px;
+  border: 1px solid #FFF3D1;
+  box-shadow: 0 4px 20px rgba(245, 189, 71, 0.4), 0 0 1px 1px rgba(255, 255, 255, 0.6) inset;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-.btn-primary-gold:hover {
-  background: #D9BB80;
-  box-shadow: 0 4px 16px rgba(201, 168, 106, 0.28);
-  transform: translateY(-1px);
+.btn-gold-bright:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(245, 189, 71, 0.65), 0 0 2px 1px #FFFFFF inset;
+  background: linear-gradient(135deg, #FFF0A3 0%, #FFE082 40%, #F5BD47 80%, #E6A218 100%);
 }
 
-.btn-primary-gold:active {
+.btn-gold-bright:active {
   transform: translateY(0);
 }
 
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.04);
-  color: #F1F5F9;
-  font-weight: 600;
-  font-size: 0.8125rem;
+.btn-bright-outline {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.85rem;
   letter-spacing: 0.03em;
-  padding: 0.65rem 1.4rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-subtle);
+  padding: 0.75rem 1.6rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
   transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -132,62 +153,92 @@ body {
   text-decoration: none;
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--border-medium);
-  color: #FFFFFF;
+.btn-bright-outline:hover {
+  background: rgba(245, 189, 71, 0.15);
+  border-color: var(--gold-bright);
+  color: #FFF3D1;
+  box-shadow: 0 0 20px rgba(245, 189, 71, 0.25);
+  transform: translateY(-1px);
 }
 
-/* Custom Clean Form Inputs */
-.exec-input {
-  background: #08090C;
-  border: 1px solid var(--border-subtle);
-  color: #F8FAFC;
+/* Bright Radiant Badges */
+.badge-bright-gold {
+  background: linear-gradient(135deg, rgba(245, 189, 71, 0.25) 0%, rgba(245, 189, 71, 0.12) 100%);
+  color: #FFD56B;
+  border: 1px solid rgba(245, 189, 71, 0.5);
+  box-shadow: 0 0 15px rgba(245, 189, 71, 0.2);
+}
+
+.badge-bright-cyan {
+  background: rgba(0, 210, 255, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(0, 210, 255, 0.4);
+}
+
+.badge-bright-emerald {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+}
+
+.badge-bright-rose {
+  background: rgba(255, 71, 87, 0.18);
+  color: #FF6B81;
+  border: 1px solid rgba(255, 71, 87, 0.45);
+}
+
+/* Clean High-Contrast Inputs */
+.bright-input {
+  background: #0E1017;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
   border-radius: 8px;
-  padding: 0.55rem 0.75rem;
-  font-size: 0.8125rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
   width: 100%;
 }
 
-.exec-input:focus {
+.bright-input:focus {
   outline: none;
-  border-color: var(--gold-primary);
-  box-shadow: 0 0 0 2px rgba(201, 168, 106, 0.2);
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(245, 189, 71, 0.3), 0 0 15px rgba(245, 189, 71, 0.2);
+  background: #141722;
 }
 
-.exec-select {
-  background: #08090C;
-  border: 1px solid var(--border-subtle);
-  color: #F8FAFC;
+.bright-select {
+  background: #0E1017;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
   border-radius: 8px;
-  padding: 0.55rem 0.75rem;
-  font-size: 0.8125rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
   width: 100%;
   cursor: pointer;
-  transition: border-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.exec-select:focus {
+.bright-select:focus {
   outline: none;
-  border-color: var(--gold-primary);
-  box-shadow: 0 0 0 2px rgba(201, 168, 106, 0.2);
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(245, 189, 71, 0.3);
+  background: #141722;
 }
 
-/* Segmented Control / Tabs */
-.segmented-control {
-  background: #0A0C11;
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 3px;
+/* High Contrast Segmented Buttons */
+.bright-segmented {
+  background: #0A0C12;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  padding: 4px;
   display: inline-flex;
 }
 
-.segmented-btn {
-  padding: 0.35rem 0.85rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 6px;
+.bright-seg-btn {
+  padding: 0.45rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 7px;
   color: #94A3B8;
   transition: all 0.15s ease;
   border: none;
@@ -195,16 +246,17 @@ body {
   cursor: pointer;
 }
 
-.segmented-btn.active {
-  background: var(--bg-surface-2);
-  color: #FFFFFF;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+.bright-seg-btn.active {
+  background: linear-gradient(135deg, #FFD56B 0%, #F5BD47 100%);
+  color: #07080C;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(245, 189, 71, 0.4);
 }
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -212,22 +264,23 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1F2430;
-  border-radius: 3px;
+  background: #2D3344;
+  border-radius: 4px;
+  border: 1px solid rgba(245, 189, 71, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2D3344;
+  background: #F5BD47;
 }
 
-/* Print Layout for Diet Protocol */
+/* Print Layout */
 @media print {
   body {
     background: #FFFFFF !important;
     color: #0F172A !important;
   }
 
-  nav, header, footer, .no-print, #calorie-calculator, #energy-balance-section, #transformations, #pricing-tiers, #consultation-booking, #diet-builder-controls {
+  nav, header, footer, .no-print, #calorie-calculator, #energy-balance-section, #transformations, #pricing-tiers, #consultation-booking {
     display: none !important;
   }
 
@@ -236,8 +289,6 @@ body {
     width: 100% !important;
     background: #FFFFFF !important;
     color: #0F172A !important;
-    box-shadow: none !important;
-    border: none !important;
     padding: 0 !important;
   }
 }

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>N24 FITNESS — Precision Physique & Nutrition Architecture | US Online Coaching</title>
-  <meta name="description" content="N24 Fitness provides science-grounded custom nutrition architecture, verified METs calorie expenditure tracking, and elite 1-on-1 human performance coaching for US clients.">
+  <title>N24 FITNESS — Premier US Online Fitness & Custom Nutrition Platform</title>
+  <meta name="description" content="N24 Fitness - Stronger, Healthier, Better. Interactive custom diet architect, science-backed MET calories burned calculator, and elite 1-on-1 coaching for US clients.">
   <link rel="icon" type="image/jpeg" href="assets/images/n24-logo.jpg">
 
   <!-- Tailwind CSS -->
@@ -14,13 +14,14 @@
       theme: {
         extend: {
           colors: {
-            brand: {
-              gold: '#C9A86A',
-              goldLight: '#DFCA9B',
-              goldDark: '#9C7D42',
-              surface: '#0E1016',
-              surfaceHover: '#141720',
-              border: 'rgba(255, 255, 255, 0.08)'
+            gold: {
+              100: '#FFF8E1',
+              200: '#FFECB3',
+              300: '#FFE082',
+              400: '#FFD54F',
+              500: '#F5BD47',
+              600: '#E5A823',
+              700: '#C48C18'
             }
           }
         }
@@ -34,175 +35,198 @@
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
-  <!-- Custom Executive Stylesheet -->
+  <!-- Custom Radiant Luxury Stylesheet -->
   <link rel="stylesheet" href="css/custom.css">
 </head>
-<body class="bg-[#08090C] text-slate-100 min-h-screen selection:bg-[#C9A86A] selection:text-black">
+<body class="bg-[#07080C] text-white min-h-screen selection:bg-amber-400 selection:text-black">
 
-  <!-- ==================== EXECUTIVE TOP STATUS BAR ==================== -->
-  <div class="bg-[#0A0C11] border-b border-white/[0.06] text-xs py-2 px-4 font-mono text-slate-400">
+  <!-- ==================== RADIANT TOP STATUS BAR ==================== -->
+  <div class="bg-gradient-to-r from-amber-500/25 via-amber-400/35 to-amber-500/25 border-b border-amber-400/40 text-xs py-2 px-4 font-bold tracking-wide text-white shadow-[0_0_20px_rgba(245,189,71,0.25)]">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center space-x-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span class="text-slate-300 font-medium">US Client Coaching Portal</span>
-        <span class="text-slate-600 hidden sm:inline">•</span>
-        <span class="hidden sm:inline text-slate-400">Nationwide 1-on-1 Intake Available Across All 50 States</span>
+      <div class="flex items-center space-x-2.5">
+        <span class="flex h-2.5 w-2.5 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-300 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400"></span>
+        </span>
+        <span class="uppercase tracking-widest text-amber-200 font-extrabold">US Client Coaching Intake:</span>
+        <span class="text-white hidden sm:inline">Now Accepting Clients for November 2026 Cohort • Dedicated 1-on-1 Mentorship</span>
       </div>
       <div class="flex items-center space-x-4">
-        <span class="text-[11px] text-slate-400 hidden md:inline">Timezones: EST • CST • MST • PST</span>
-        <a href="#consultation-booking" class="text-amber-200 hover:text-white transition font-medium text-xs">
-          Schedule Assessment &rarr;
+        <span class="text-amber-200 hidden md:inline font-mono">EST • CST • MST • PST</span>
+        <a href="#consultation-booking" class="bg-black/60 hover:bg-black text-amber-300 hover:text-white px-3 py-1 rounded-full border border-amber-400/50 text-[11px] font-extrabold transition shadow">
+          Book Free US Strategy Call &rarr;
         </a>
       </div>
     </div>
   </div>
 
-  <!-- ==================== NAVIGATION BAR ==================== -->
-  <header class="sticky top-0 z-40 bg-[#08090C]/90 backdrop-blur-md border-b border-white/[0.07] transition-all duration-200">
+  <!-- ==================== BRIGHT NAVIGATION BAR ==================== -->
+  <header class="sticky top-0 z-40 bg-[#090A10]/95 backdrop-blur-md border-b border-white/15 transition-all duration-200 shadow-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo with official image -->
       <a href="#" class="flex items-center space-x-3.5 group">
-        <div class="w-11 h-11 rounded-lg overflow-hidden border border-white/10 p-0.5 bg-black/60 transition group-hover:border-amber-400/40">
-          <img src="assets/images/n24-logo.jpg" alt="N24 Fitness Official Insignia" class="w-full h-full object-cover">
+        <div class="w-12 h-12 rounded-xl overflow-hidden border-2 border-amber-400/80 p-0.5 bg-black shadow-[0_0_20px_rgba(245,189,71,0.5)] group-hover:border-amber-300 transition group-hover:scale-105 duration-200">
+          <img src="assets/images/n24-logo.jpg" alt="Official N24 Fitness Insignia" class="w-full h-full object-cover">
         </div>
         <div>
-          <div class="flex items-center space-x-1">
-            <span class="text-lg font-extrabold tracking-tight text-white font-sans">N24</span>
-            <span class="text-lg font-bold tracking-tight text-amber-200/90 font-sans ml-1">FITNESS</span>
+          <div class="flex items-center space-x-1.5">
+            <span class="text-2xl font-black tracking-tight text-white font-sans">N24</span>
+            <span class="text-2xl font-black tracking-tight gold-gradient-text font-sans">FITNESS</span>
           </div>
-          <div class="text-[9px] uppercase tracking-[0.2em] text-slate-400 font-mono font-medium">Stronger • Healthier • Better</div>
+          <div class="text-[10px] uppercase tracking-[0.25em] text-amber-300/90 font-mono font-bold">Stronger • Healthier • Better</div>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold tracking-wide text-slate-300">
-        <a href="#diet-architect" class="hover:text-amber-200 transition">Diet Architect</a>
-        <a href="#calorie-calculator" class="hover:text-amber-200 transition">BurnIQ Calculator</a>
-        <a href="#energy-balance-section" class="hover:text-amber-200 transition">Net Energy Balance</a>
-        <a href="#methodology" class="hover:text-amber-200 transition">Methodology</a>
-        <a href="#transformations" class="hover:text-amber-200 transition">Case Studies</a>
-        <a href="#pricing-tiers" class="hover:text-amber-200 transition">Coaching Tiers</a>
+      <nav class="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider text-slate-200">
+        <a href="#diet-architect" class="hover:text-amber-300 transition flex items-center space-x-1.5">
+          <i class="fa-solid fa-utensils text-amber-400"></i>
+          <span>Diet Builder</span>
+        </a>
+        <a href="#calorie-calculator" class="hover:text-amber-300 transition flex items-center space-x-1.5">
+          <i class="fa-solid fa-fire text-amber-400"></i>
+          <span>Calories Burned</span>
+        </a>
+        <a href="#energy-balance-section" class="hover:text-amber-300 transition flex items-center space-x-1.5">
+          <i class="fa-solid fa-scale-balanced text-amber-400"></i>
+          <span>Net Energy</span>
+        </a>
+        <a href="#transformations" class="hover:text-amber-300 transition flex items-center space-x-1.5">
+          <i class="fa-solid fa-trophy text-amber-400"></i>
+          <span>US Results</span>
+        </a>
+        <a href="#pricing-tiers" class="hover:text-amber-300 transition flex items-center space-x-1.5">
+          <i class="fa-solid fa-crown text-amber-400"></i>
+          <span>Coaching Tiers</span>
+        </a>
       </nav>
 
-      <!-- Unit Switcher & Consultation CTA -->
-      <div class="hidden sm:flex items-center space-x-3.5">
+      <!-- Unit Switcher & Strategy Call CTA -->
+      <div class="hidden sm:flex items-center space-x-4">
         <!-- Segmented Unit Switcher -->
-        <div class="segmented-control">
-          <button id="unit-btn-imperial" class="segmented-btn active" type="button">US (lbs/oz)</button>
-          <button id="unit-btn-metric" class="segmented-btn" type="button">Metric (kg/g)</button>
+        <div class="bright-segmented">
+          <button id="unit-btn-imperial" class="bright-seg-btn active" type="button">US (lbs/oz)</button>
+          <button id="unit-btn-metric" class="bright-seg-btn" type="button">Metric (kg/g)</button>
         </div>
 
         <!-- Strategy Call Button -->
-        <button type="button" class="btn-open-consult-modal btn-primary-gold">
-          Free Strategy Call
+        <button type="button" class="btn-open-consult-modal btn-gold-bright">
+          <i class="fa-solid fa-calendar-check mr-2"></i> Free Strategy Call
         </button>
       </div>
 
       <!-- Mobile Hamburger Button -->
       <div class="flex items-center sm:hidden">
-        <button id="mobile-menu-toggle" type="button" class="p-2 text-slate-400 hover:text-white focus:outline-none">
-          <i class="fa-solid fa-bars text-lg"></i>
+        <button id="mobile-menu-toggle" type="button" class="p-2 text-white hover:text-amber-300 focus:outline-none">
+          <i class="fa-solid fa-bars text-xl"></i>
         </button>
       </div>
     </div>
 
     <!-- Mobile Drawer Navigation -->
-    <div id="mobile-nav-drawer" class="hidden lg:hidden bg-[#0B0D12] border-b border-white/10 px-6 py-6 space-y-4">
+    <div id="mobile-nav-drawer" class="hidden lg:hidden bg-[#0F121C] border-b border-amber-400/30 px-6 py-6 space-y-4">
       <div class="flex justify-between items-center pb-3 border-b border-white/10">
-        <span class="text-xs font-mono uppercase tracking-wider text-slate-400">Platform Navigation</span>
-        <button id="btn-close-mobile-nav" class="text-slate-400 hover:text-white">
-          <i class="fa-solid fa-xmark text-base"></i>
+        <span class="text-xs font-mono uppercase tracking-wider text-amber-300 font-bold">Platform Navigation</span>
+        <button id="btn-close-mobile-nav" class="text-white hover:text-amber-400 text-lg">
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
-      <div class="flex flex-col space-y-3 text-sm font-medium">
-        <a href="#diet-architect" class="mobile-nav-link text-slate-300 hover:text-amber-200 py-1">Diet Architect</a>
-        <a href="#calorie-calculator" class="mobile-nav-link text-slate-300 hover:text-amber-200 py-1">BurnIQ Calorie Engine</a>
-        <a href="#energy-balance-section" class="mobile-nav-link text-slate-300 hover:text-amber-200 py-1">Net Energy Balance</a>
-        <a href="#methodology" class="mobile-nav-link text-slate-300 hover:text-amber-200 py-1">Methodology</a>
-        <a href="#transformations" class="mobile-nav-link text-slate-300 hover:text-amber-200 py-1">Case Studies</a>
-        <a href="#pricing-tiers" class="mobile-nav-link text-slate-300 hover:text-amber-200 py-1">Coaching Tiers</a>
+      <div class="flex flex-col space-y-3 text-sm font-bold uppercase tracking-wider">
+        <a href="#diet-architect" class="mobile-nav-link text-slate-200 hover:text-amber-300 py-1">Diet Builder</a>
+        <a href="#calorie-calculator" class="mobile-nav-link text-slate-200 hover:text-amber-300 py-1">Calories Burned Calculator</a>
+        <a href="#energy-balance-section" class="mobile-nav-link text-slate-200 hover:text-amber-300 py-1">Net Caloric Balance</a>
+        <a href="#transformations" class="mobile-nav-link text-slate-200 hover:text-amber-300 py-1">Client Results</a>
+        <a href="#pricing-tiers" class="mobile-nav-link text-slate-200 hover:text-amber-300 py-1">Coaching Programs</a>
       </div>
       <div class="pt-4 border-t border-white/10">
-        <button type="button" class="btn-open-consult-modal btn-primary-gold w-full py-2.5 text-xs font-bold uppercase tracking-wider">
-          Book Free Strategy Call
+        <button type="button" class="btn-open-consult-modal btn-gold-bright w-full py-3 text-xs uppercase tracking-wider font-extrabold">
+          <i class="fa-solid fa-calendar-check mr-2"></i> Book Free Strategy Call
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ==================== HERO SECTION ==================== -->
-  <section class="relative pt-16 pb-20 overflow-hidden border-b border-white/[0.05]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- ==================== BRIGHT & POWERFUL HERO SECTION ==================== -->
+  <section class="relative pt-16 pb-24 overflow-hidden border-b border-white/10">
+    <!-- Radiant Golden Sunlight Flare -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-amber-400/25 to-transparent rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Left Column: Copy & Value Proposition -->
+        <!-- Left: Punchy Copy & CTAs -->
         <div class="lg:col-span-7 text-center lg:text-left">
           
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-slate-300 mb-6">
-            <span class="w-2 h-2 rounded-full bg-amber-400/80"></span>
-            <span>Science-Grounded Human Performance Architecture</span>
+          <div class="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full badge-bright-gold text-xs font-bold uppercase tracking-wider mb-6 shadow-lg">
+            <i class="fa-solid fa-award text-amber-300"></i>
+            <span>#1 Ranked Online Fitness & Nutrition Platform for US Clients</span>
           </div>
 
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.12] mb-6">
-            Precision Nutrition & <br class="hidden sm:inline">
-            <span class="gold-gradient-text">Physique Architecture</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08] mb-6">
+            Forge Your Ultimate Physique With <br>
+            <span class="gold-gradient-text">Precision Nutrition & Science</span>
           </h1>
 
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 font-normal">
-            Designed for high-functioning executives, professionals, and dedicated athletes across the United States. Construct your customized daily macronutrient protocol, calculate verified MET workout caloric burn, and work 1-on-1 with elite coaches.
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 font-medium">
+            Engineered specifically for US executives, high-performers, and athletes. Build your personalized daily meal plan, accurately calculate workout calories burned, and achieve lasting body recomposition with verified 1-on-1 coaching.
           </p>
 
           <!-- Action Buttons -->
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 mb-10">
-            <a href="#diet-architect" class="btn-primary-gold w-full sm:w-auto text-center">
-              Launch Diet Architect &rarr;
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+            <a href="#diet-architect" class="btn-gold-bright w-full sm:w-auto text-center text-sm py-3.5 px-8 shadow-xl">
+              <i class="fa-solid fa-utensils mr-2"></i> Build Your Custom Diet
             </a>
-            <a href="#calorie-calculator" class="btn-secondary w-full sm:w-auto text-center">
-              Calculate Caloric Burn
+            <a href="#calorie-calculator" class="btn-bright-outline w-full sm:w-auto text-center text-sm py-3.5 px-8">
+              <i class="fa-solid fa-fire mr-2 text-amber-400"></i> Calculate Calories Burned
             </a>
           </div>
 
-          <!-- Statistics Strip -->
-          <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/[0.07] text-center lg:text-left">
+          <!-- Bright High-Contrast Stats Strip -->
+          <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/15 text-center lg:text-left">
             <div>
-              <div class="text-xl sm:text-2xl font-bold text-white font-mono">1,400+</div>
-              <div class="text-[11px] text-slate-400 font-medium mt-0.5">Verified US Case Studies</div>
+              <div class="text-3xl sm:text-4xl font-black text-white font-mono">1,400+</div>
+              <div class="text-xs text-amber-200 font-bold uppercase tracking-wide mt-1">US Transformations</div>
             </div>
             <div>
-              <div class="text-xl sm:text-2xl font-bold text-amber-200 font-mono">98.2%</div>
-              <div class="text-[11px] text-slate-400 font-medium mt-0.5">Protocol Adherence Rate</div>
+              <div class="text-3xl sm:text-4xl font-black text-amber-300 font-mono">98.4%</div>
+              <div class="text-xs text-amber-200 font-bold uppercase tracking-wide mt-1">Goal Retention Rate</div>
             </div>
             <div>
-              <div class="text-xl sm:text-2xl font-bold text-white font-mono">50 States</div>
-              <div class="text-[11px] text-slate-400 font-medium mt-0.5">Nationwide US Coverage</div>
+              <div class="text-3xl sm:text-4xl font-black text-white font-mono">50 States</div>
+              <div class="text-xs text-amber-200 font-bold uppercase tracking-wide mt-1">Nationwide Coaching</div>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Official Insignia Showcase -->
+        <!-- Right: Official Logo Showcase Card with Luminous Gold Trim -->
         <div class="lg:col-span-5 flex justify-center">
-          <div class="w-full max-w-sm">
+          <div class="w-full max-w-md">
             
-            <div class="exec-card p-6 border border-white/10 relative overflow-hidden bg-[#0C0E14]">
-              <div class="flex flex-col items-center text-center">
+            <div class="bright-card-gold p-7 rounded-2xl relative overflow-hidden group">
+              <!-- Corner Light Flare -->
+              <div class="absolute -top-10 -right-10 w-32 h-32 bg-amber-400/30 rounded-full blur-2xl"></div>
+
+              <div class="flex flex-col items-center text-center relative z-10">
                 
-                <div class="w-full max-w-[260px] rounded-lg overflow-hidden border border-white/10 shadow-2xl mb-5 bg-black/60">
+                <!-- Logo with bright golden glow -->
+                <div class="w-full max-w-[290px] rounded-2xl overflow-hidden border-2 border-amber-400/90 shadow-[0_0_35px_rgba(245,189,71,0.5)] mb-6 bg-black">
                   <img src="assets/images/n24-logo.jpg" alt="Official N24 Fitness Insignia" class="w-full h-auto object-contain">
                 </div>
 
-                <div class="text-xs font-mono text-slate-300 font-medium mb-3">
-                  N24 FITNESS • UNITED STATES
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-amber-200 font-bold mb-4">
+                  <i class="fa-solid fa-shield-halved text-amber-400"></i>
+                  <span>NASM • CSCS • ISSN Certified Standards</span>
                 </div>
 
-                <div class="w-full grid grid-cols-2 gap-2 text-left text-xs font-mono">
-                  <div class="p-2 rounded bg-black/40 border border-white/5">
-                    <span class="text-slate-400 text-[10px] block">NUTRITION</span>
-                    <span class="text-slate-200 font-semibold">Diet Architect</span>
+                <div class="w-full grid grid-cols-2 gap-3 text-left text-xs font-mono">
+                  <div class="p-3 rounded-xl bg-black/60 border border-white/15">
+                    <span class="text-amber-300 font-bold text-xs block mb-0.5"><i class="fa-solid fa-utensils mr-1"></i> Custom Diet</span>
+                    <span class="text-slate-300 text-[11px]">USDA food database</span>
                   </div>
-                  <div class="p-2 rounded bg-black/40 border border-white/5">
-                    <span class="text-slate-400 text-[10px] block">ENERGY</span>
-                    <span class="text-slate-200 font-semibold">METs BurnIQ</span>
+                  <div class="p-3 rounded-xl bg-black/60 border border-white/15">
+                    <span class="text-amber-300 font-bold text-xs block mb-0.5"><i class="fa-solid fa-fire-flame-curved mr-1"></i> METs BurnIQ</span>
+                    <span class="text-slate-300 text-[11px]">Exact calories burned</span>
                   </div>
                 </div>
 
@@ -216,51 +240,27 @@
     </div>
   </section>
 
-  <!-- ==================== METHODOLOGY & CREDENTIALS ==================== -->
-  <section id="methodology" class="py-16 bg-[#0A0C11] border-b border-white/[0.05]">
+  <!-- ==================== US TRUST CREDENTIALS BAR ==================== -->
+  <section class="py-6 bg-[#0E1018] border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs uppercase font-mono tracking-widest text-amber-200/90 font-semibold">The 4-Pillar Coaching Architecture</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mt-1">
-          Evidence-Based Physiological Protocol
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="exec-card p-5 border border-white/5 bg-[#0C0E14]">
-          <div class="text-xs font-mono text-amber-200/80 mb-2 font-bold">PILLAR 01</div>
-          <h4 class="text-sm font-bold text-white mb-1.5">Metabolic Calibration</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Precise baseline TDEE and BMR modeling calibrated with body composition and DEXA metrics to establish realistic energetic thresholds.
-          </p>
+      <div class="flex flex-wrap items-center justify-around gap-6 text-white text-xs uppercase tracking-widest font-extrabold">
+        <div class="flex items-center space-x-2.5">
+          <i class="fa-solid fa-dumbbell text-amber-400 text-lg"></i>
+          <span>National Academy of Sports Medicine (NASM)</span>
         </div>
-
-        <div class="exec-card p-5 border border-white/5 bg-[#0C0E14]">
-          <div class="text-xs font-mono text-amber-200/80 mb-2 font-bold">PILLAR 02</div>
-          <h4 class="text-sm font-bold text-white mb-1.5">Progressive Overload</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Periodized resistance training cycles designed to maximize myofibrillar hypertrophy while managing fatigue and joint integrity.
-          </p>
+        <div class="flex items-center space-x-2.5">
+          <i class="fa-solid fa-medal text-amber-400 text-lg"></i>
+          <span>Certified Strength Specialist (CSCS)</span>
         </div>
-
-        <div class="exec-card p-5 border border-white/5 bg-[#0C0E14]">
-          <div class="text-xs font-mono text-amber-200/80 mb-2 font-bold">PILLAR 03</div>
-          <h4 class="text-sm font-bold text-white mb-1.5">Macronutrient Timing</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Nutrient distribution aligned with diurnal rhythm and workout timing to sustain cognitive clarity and accelerate tissue recovery.
-          </p>
+        <div class="flex items-center space-x-2.5">
+          <i class="fa-solid fa-apple-whole text-amber-400 text-lg"></i>
+          <span>Sports Nutrition Authority (ISSN)</span>
         </div>
-
-        <div class="exec-card p-5 border border-white/5 bg-[#0C0E14]">
-          <div class="text-xs font-mono text-amber-200/80 mb-2 font-bold">PILLAR 04</div>
-          <h4 class="text-sm font-bold text-white mb-1.5">Recovery Telemetry</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Continuous health telemetry syncing with Apple Watch, Whoop, and Oura to modulate weekly training volume and sleep architecture.
-          </p>
+        <div class="flex items-center space-x-2.5">
+          <i class="fa-solid fa-clock text-amber-400 text-lg"></i>
+          <span>US Timezones: EST • CST • MST • PST</span>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -269,28 +269,32 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="max-w-3xl mb-12">
-        <span class="text-xs uppercase font-mono tracking-widest text-amber-200/90 font-semibold block mb-1">
-          Interactive Nutrition System
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-          N24 Smart Diet Architect
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full badge-bright-gold text-xs font-extrabold uppercase tracking-widest mb-3">
+          <i class="fa-solid fa-kitchen-set"></i>
+          <span>Interactive Custom Diet System</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight mb-4">
+          N24 Smart <span class="gold-gradient-text">Diet Architect</span>
         </h2>
-        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          Configure your physiological profile, calculate your baseline energy target, and curate meal-by-meal allocations using USDA-verified whole foods.
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
+          Create your tailored, science-backed meal plan. Set your biometrics, customize meal-by-meal allocations with staple US fitness foods, and track real-time macro progression.
         </p>
       </div>
 
-      <!-- Quick 1-Click Protocol Presets -->
-      <div class="mb-8 p-4 rounded-xl bg-[#0C0E14] border border-white/[0.06]">
-        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-          <span class="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold">
-            One-Click Protocol Presets
-          </span>
-          <span class="text-[11px] text-slate-500">Select any template to populate immediate targets</span>
+      <!-- Quick 1-Click US Presets -->
+      <div class="mb-10 p-5 rounded-2xl bright-card border border-amber-400/30">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-bolt text-amber-400 text-base"></i>
+            <span class="text-xs uppercase tracking-wider font-extrabold text-white">
+              1-Click US Diet Presets:
+            </span>
+          </div>
+          <span class="text-xs text-amber-200/90 font-medium">Click any preset to instantly generate a balanced protocol</span>
         </div>
         <div id="diet-preset-pills" class="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <!-- Populated by diet-builder.js -->
+          <!-- Populated dynamically by diet-builder.js -->
         </div>
       </div>
 
@@ -299,113 +303,118 @@
         <!-- Left: Biometrics & Target Setting -->
         <div class="lg:col-span-4 space-y-6">
           
-          <div class="exec-card p-5 border border-white/[0.07] bg-[#0C0E14]">
-            <h3 class="text-sm font-bold text-white mb-4 pb-3 border-b border-white/[0.06] flex items-center justify-between">
-              <span>Biometric Parameters</span>
-              <span class="text-[11px] font-mono text-slate-400">Step 1 of 2</span>
+          <div class="bright-card p-6 border border-white/15">
+            <h3 class="text-base font-extrabold text-white mb-4 pb-3 border-b border-white/10 flex items-center justify-between">
+              <span class="flex items-center space-x-2">
+                <i class="fa-solid fa-sliders text-amber-400 text-sm"></i>
+                <span>Your Biometrics & Goal</span>
+              </span>
+              <span class="text-xs text-amber-300 font-mono font-bold">Step 1</span>
             </h3>
 
-            <div class="space-y-3.5 text-xs">
+            <div class="space-y-4 text-xs font-semibold">
               <!-- Objective -->
               <div>
-                <label class="block text-slate-400 font-medium mb-1">Target Objective</label>
-                <select id="diet-goal-select" class="exec-select">
+                <label class="block text-slate-200 mb-1 font-bold">Primary Fitness Goal</label>
+                <select id="diet-goal-select" class="bright-select font-bold">
                   <option value="cut" selected>Rapid Fat Shred (-500 kcal Deficit)</option>
                   <option value="recomp">Lean Recomposition (-200 kcal Deficit)</option>
                   <option value="bulk">Hypertrophy Muscle Gain (+350 kcal Surplus)</option>
-                  <option value="maintain">Athletic Maintenance (TDEE Baseline)</option>
-                  <option value="keto">Ketogenic Reset (-400 kcal Low-Carb)</option>
+                  <option value="maintain">Clean Athletic Maintenance</option>
+                  <option value="keto">Ketogenic Metabolic Reset (-400 kcal)</option>
                 </select>
               </div>
 
               <!-- Gender & Age -->
               <div class="grid grid-cols-2 gap-3">
                 <div>
-                  <label class="block text-slate-400 font-medium mb-1">Biological Sex</label>
-                  <select id="diet-gender-select" class="exec-select">
+                  <label class="block text-slate-200 mb-1 font-bold">Biological Sex</label>
+                  <select id="diet-gender-select" class="bright-select">
                     <option value="male" selected>Male</option>
                     <option value="female">Female</option>
                   </select>
                 </div>
                 <div>
-                  <label class="block text-slate-400 font-medium mb-1">Age</label>
-                  <input type="number" id="diet-age-input" value="32" min="16" max="90" class="exec-input font-mono">
+                  <label class="block text-slate-200 mb-1 font-bold">Age (Years)</label>
+                  <input type="number" id="diet-age-input" value="32" min="16" max="90" class="bright-input font-mono font-bold">
                 </div>
               </div>
 
               <!-- Body Weight -->
               <div class="unit-imperial-field">
-                <label class="block text-slate-400 font-medium mb-1">Body Weight (lbs)</label>
-                <input type="number" id="diet-weight-lbs" value="185" min="80" max="450" class="exec-input font-mono">
+                <label class="block text-slate-200 mb-1 font-bold">Body Weight (lbs)</label>
+                <input type="number" id="diet-weight-lbs" value="185" min="80" max="450" class="bright-input font-mono font-bold">
               </div>
 
               <div class="unit-metric-field hidden">
-                <label class="block text-slate-400 font-medium mb-1">Body Weight (kg)</label>
-                <input type="number" id="diet-weight-kg" value="84" min="35" max="200" class="exec-input font-mono">
+                <label class="block text-slate-200 mb-1 font-bold">Body Weight (kg)</label>
+                <input type="number" id="diet-weight-kg" value="84" min="35" max="200" class="bright-input font-mono font-bold">
               </div>
 
               <!-- Height -->
               <div class="unit-imperial-field">
-                <label class="block text-slate-400 font-medium mb-1">Height (Feet & Inches)</label>
+                <label class="block text-slate-200 mb-1 font-bold">Height (Feet & Inches)</label>
                 <div class="grid grid-cols-2 gap-2">
-                  <input type="number" id="diet-height-ft" value="5" min="4" max="7" class="exec-input font-mono" placeholder="Feet">
-                  <input type="number" id="diet-height-in" value="10" min="0" max="11" class="exec-input font-mono" placeholder="Inches">
+                  <input type="number" id="diet-height-ft" value="5" min="4" max="7" class="bright-input font-mono font-bold" placeholder="Feet">
+                  <input type="number" id="diet-height-in" value="10" min="0" max="11" class="bright-input font-mono font-bold" placeholder="Inches">
                 </div>
               </div>
 
               <div class="unit-metric-field hidden">
-                <label class="block text-slate-400 font-medium mb-1">Height (Centimeters)</label>
-                <input type="number" id="diet-height-cm" value="178" min="120" max="230" class="exec-input font-mono">
+                <label class="block text-slate-200 mb-1 font-bold">Height (Centimeters)</label>
+                <input type="number" id="diet-height-cm" value="178" min="120" max="230" class="bright-input font-mono font-bold">
               </div>
 
               <!-- Activity Level -->
               <div>
-                <label class="block text-slate-400 font-medium mb-1">Physical Activity Factor</label>
-                <select id="diet-activity-select" class="exec-select">
-                  <option value="1.2">Sedentary (Minimal intentional exercise)</option>
-                  <option value="1.375">Lightly Active (1-3 training sessions/week)</option>
-                  <option value="1.55" selected>Moderately Active (3-5 sessions/week)</option>
-                  <option value="1.725">Very Active (6-7 intense sessions/week)</option>
-                  <option value="1.9">Elite Athletic (Two-a-day programming)</option>
+                <label class="block text-slate-200 mb-1 font-bold">Activity Factor</label>
+                <select id="diet-activity-select" class="bright-select">
+                  <option value="1.2">Sedentary (Desk Job, minimal exercise)</option>
+                  <option value="1.375">Lightly Active (1-3 gym workouts/week)</option>
+                  <option value="1.55" selected>Moderately Active (3-5 intense sessions/week)</option>
+                  <option value="1.725">Very Active (6-7 days heavy training)</option>
+                  <option value="1.9">Elite Athletic (Two-a-day training)</option>
                 </select>
               </div>
             </div>
 
             <!-- Calculated Baseline Targets -->
-            <div class="mt-5 pt-4 border-t border-white/[0.06] bg-black/30 rounded-lg p-3.5">
-              <div class="flex justify-between items-center text-[11px] font-mono text-slate-400 mb-2">
+            <div class="mt-6 pt-5 border-t border-white/10 bg-black/50 rounded-xl p-4 border border-white/10">
+              <div class="flex justify-between items-center text-xs font-mono text-amber-200 font-bold mb-3">
                 <span>Calculated Baseline</span>
                 <span>Mifflin-St Jeor</span>
               </div>
 
               <div class="grid grid-cols-2 gap-2 text-xs mb-3 font-mono">
-                <div class="p-2 rounded bg-white/[0.03]">
-                  <span class="text-slate-400 text-[10px] block">Basal BMR:</span>
-                  <span id="target-bmr-val" class="font-bold text-slate-200">1,820 kcal</span>
+                <div class="p-2.5 rounded-lg bg-white/10">
+                  <span class="text-slate-300 text-[10px] uppercase block font-semibold">Basal BMR:</span>
+                  <span id="target-bmr-val" class="font-bold text-white text-sm">1,820 kcal</span>
                 </div>
-                <div class="p-2 rounded bg-white/[0.03]">
-                  <span class="text-slate-400 text-[10px] block">Daily TDEE:</span>
-                  <span id="target-tdee-val" class="font-bold text-slate-200">2,821 kcal</span>
+                <div class="p-2.5 rounded-lg bg-white/10">
+                  <span class="text-slate-300 text-[10px] uppercase block font-semibold">Daily TDEE:</span>
+                  <span id="target-tdee-val" class="font-bold text-white text-sm">2,821 kcal</span>
                 </div>
               </div>
 
-              <div class="p-2.5 rounded bg-amber-400/10 border border-amber-400/20 text-center mb-3">
-                <span class="text-[10px] uppercase font-mono text-amber-200 block font-semibold">Recommended Daily Intake</span>
-                <span id="target-cals-val" class="text-xl font-bold text-white font-mono">2,321 kcal</span>
+              <!-- Main Target Calorie Box -->
+              <div class="p-3.5 rounded-xl bg-gradient-to-r from-amber-500/20 via-amber-400/30 to-amber-500/20 border-2 border-amber-400/60 text-center mb-3 shadow-[0_0_20px_rgba(245,189,71,0.25)]">
+                <span class="text-xs uppercase font-extrabold text-amber-200 block tracking-wider">Target Daily Caloric Intake</span>
+                <span id="target-cals-val" class="text-3xl font-black text-white font-mono my-0.5 block">2,321 kcal</span>
               </div>
 
-              <div class="grid grid-cols-3 gap-1.5 text-center text-xs font-mono">
-                <div class="p-1.5 rounded bg-sky-500/10 border border-sky-500/20">
-                  <span class="text-[10px] text-sky-400 block">Protein</span>
-                  <span id="target-protein-val" class="font-bold text-slate-200">200g</span>
+              <!-- Target Macro Split -->
+              <div class="grid grid-cols-3 gap-2 text-center text-xs font-mono font-bold">
+                <div class="p-2 rounded-lg bg-sky-500/20 border border-sky-400/40">
+                  <span class="text-[10px] text-sky-300 uppercase block">Protein</span>
+                  <span id="target-protein-val" class="text-white text-sm">200g</span>
                 </div>
-                <div class="p-1.5 rounded bg-amber-500/10 border border-amber-500/20">
-                  <span class="text-[10px] text-amber-300 block">Carbs</span>
-                  <span id="target-carbs-val" class="font-bold text-slate-200">210g</span>
+                <div class="p-2 rounded-lg bg-amber-500/20 border border-amber-400/40">
+                  <span class="text-[10px] text-amber-300 uppercase block">Carbs</span>
+                  <span id="target-carbs-val" class="text-white text-sm">210g</span>
                 </div>
-                <div class="p-1.5 rounded bg-rose-500/10 border border-rose-500/20">
-                  <span class="text-[10px] text-rose-400 block">Fats</span>
-                  <span id="target-fat-val" class="font-bold text-slate-200">65g</span>
+                <div class="p-2 rounded-lg bg-rose-500/20 border border-rose-400/40">
+                  <span class="text-[10px] text-rose-300 uppercase block">Fats</span>
+                  <span id="target-fat-val" class="text-white text-sm">65g</span>
                 </div>
               </div>
             </div>
@@ -413,12 +422,12 @@
           </div>
 
           <!-- Macro Doughnut Chart Card -->
-          <div class="exec-card p-5 border border-white/[0.07] bg-[#0C0E14]">
-            <div class="flex justify-between items-center mb-3">
-              <h4 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Macro Balance</h4>
-              <span class="text-[11px] text-slate-500 font-mono">Live Doughnut</span>
+          <div class="bright-card p-6 border border-white/15">
+            <div class="flex justify-between items-center mb-4">
+              <h4 class="text-sm font-extrabold text-white uppercase tracking-wider font-mono">Macro Distribution</h4>
+              <span class="text-xs text-amber-300 font-mono font-bold">Live Breakdown</span>
             </div>
-            <div class="h-44 relative">
+            <div class="h-48 relative">
               <canvas id="diet-macro-chart"></canvas>
             </div>
           </div>
@@ -429,59 +438,59 @@
         <div class="lg:col-span-8 space-y-6">
           
           <!-- Summary Header -->
-          <div class="exec-card p-5 border border-white/[0.08] bg-[#0C0E14]">
-            <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/[0.06] mb-4">
+          <div class="bright-card p-6 border border-amber-400/40 bg-gradient-to-br from-[#181B26] to-[#12141D] shadow-xl">
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-white/10 mb-4">
               <div>
-                <span class="text-[11px] uppercase tracking-wider text-slate-400 font-mono block">Current Daily Intake</span>
-                <span class="text-2xl font-bold text-white font-mono" id="diet-current-calories">1,850 kcal</span>
+                <span class="text-xs uppercase tracking-wider text-amber-200 font-bold block">Current Diet Intake</span>
+                <span class="text-3xl font-black text-white font-mono" id="diet-current-calories">1,850 kcal</span>
               </div>
 
               <!-- Macros Live Counters -->
-              <div class="flex items-center space-x-6 text-xs font-mono">
-                <div>
-                  <span class="text-slate-400 text-[10px] block">Protein</span>
-                  <span class="text-sky-400 font-bold" id="diet-current-protein">195g</span>
+              <div class="flex items-center space-x-6 text-xs font-mono font-bold">
+                <div class="bg-sky-400/10 px-3 py-1.5 rounded-lg border border-sky-400/30">
+                  <span class="text-sky-300 text-[10px] uppercase block">Protein</span>
+                  <span class="text-sky-400 font-extrabold text-base" id="diet-current-protein">195g</span>
                 </div>
-                <div>
-                  <span class="text-slate-400 text-[10px] block">Carbs</span>
-                  <span class="text-amber-200 font-bold" id="diet-current-carbs">140g</span>
+                <div class="bg-amber-400/10 px-3 py-1.5 rounded-lg border border-amber-400/30">
+                  <span class="text-amber-300 text-[10px] uppercase block">Carbs</span>
+                  <span class="text-amber-300 font-extrabold text-base" id="diet-current-carbs">140g</span>
                 </div>
-                <div>
-                  <span class="text-slate-400 text-[10px] block">Fats</span>
-                  <span class="text-rose-400 font-bold" id="diet-current-fat">48g</span>
+                <div class="bg-rose-400/10 px-3 py-1.5 rounded-lg border border-rose-400/30">
+                  <span class="text-rose-300 text-[10px] uppercase block">Fats</span>
+                  <span class="text-rose-400 font-extrabold text-base" id="diet-current-fat">48g</span>
                 </div>
               </div>
 
-              <!-- Actions -->
-              <div class="flex items-center space-x-2">
-                <button type="button" id="btn-export-diet" class="btn-primary-gold px-3 py-1.5 text-xs font-semibold">
-                  <i class="fa-solid fa-file-pdf mr-1.5 text-[11px]"></i> Export PDF
+              <!-- Action Buttons -->
+              <div class="flex items-center space-x-2.5">
+                <button type="button" id="btn-export-diet" class="btn-gold-bright px-4 py-2 text-xs font-extrabold shadow">
+                  <i class="fa-solid fa-file-pdf mr-1.5 text-xs"></i> Print / Export PDF
                 </button>
-                <button type="button" id="btn-clear-diet" class="btn-secondary px-3 py-1.5 text-xs font-medium">
-                  Reset
+                <button type="button" id="btn-clear-diet" class="px-3 py-2 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 text-xs font-bold border border-rose-500/30 transition">
+                  <i class="fa-solid fa-arrow-rotate-left mr-1"></i> Reset
                 </button>
               </div>
             </div>
 
             <!-- Progress Bars -->
-            <div class="space-y-2.5">
+            <div class="space-y-3 font-mono font-bold">
               <div>
-                <div class="flex justify-between text-xs mb-1 font-mono">
-                  <span class="text-slate-400 text-[11px]">Calorie Allocation</span>
-                  <span id="diet-calories-diff" class="text-amber-200/90 text-[11px]">Target in range</span>
+                <div class="flex justify-between text-xs mb-1.5">
+                  <span class="text-white">Daily Calorie Target</span>
+                  <span id="diet-calories-diff" class="text-amber-300 font-extrabold">Target in range</span>
                 </div>
-                <div class="w-full bg-black/40 rounded h-1.5 overflow-hidden">
-                  <div id="progress-bar-calories" class="bg-amber-400 h-1.5 rounded transition-all duration-300" style="width: 80%;"></div>
+                <div class="w-full bg-black/60 rounded-full h-3 overflow-hidden border border-white/10 p-0.5">
+                  <div id="progress-bar-calories" class="bg-gradient-to-r from-amber-400 to-amber-300 h-2 rounded-full transition-all duration-300 shadow-[0_0_10px_#F5BD47]" style="width: 80%;"></div>
                 </div>
               </div>
 
               <div>
-                <div class="flex justify-between text-xs mb-1 font-mono">
-                  <span class="text-slate-400 text-[11px]">Protein Fulfillment</span>
-                  <span id="diet-protein-diff" class="text-slate-400 text-[11px]">88% of target</span>
+                <div class="flex justify-between text-xs mb-1.5">
+                  <span class="text-sky-300">Protein Target</span>
+                  <span id="diet-protein-diff" class="text-slate-300 text-[11px]">88% of target</span>
                 </div>
-                <div class="w-full bg-black/40 rounded h-1.5 overflow-hidden">
-                  <div id="progress-bar-protein" class="bg-sky-400 h-1.5 rounded transition-all duration-300" style="width: 88%;"></div>
+                <div class="w-full bg-black/60 rounded-full h-2.5 overflow-hidden border border-white/10 p-0.5">
+                  <div id="progress-bar-protein" class="bg-gradient-to-r from-sky-500 to-sky-300 h-1.5 rounded-full transition-all duration-300" style="width: 88%;"></div>
                 </div>
               </div>
             </div>
@@ -499,19 +508,20 @@
   </section>
 
   <!-- ==================== FEATURE 2: N24 BURNIQ CALORIE CALCULATOR ==================== -->
-  <section id="calorie-calculator" class="py-20 bg-[#0A0C11] relative border-y border-white/[0.05]">
+  <section id="calorie-calculator" class="py-20 bg-[#0E1018] relative border-y border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="max-w-3xl mb-12">
-        <span class="text-xs uppercase font-mono tracking-widest text-amber-200/90 font-semibold block mb-1">
-          Sports Science Energy Telemetry
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-          N24 BurnIQ Calorie Engine
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-extrabold uppercase tracking-widest mb-3">
+          <i class="fa-solid fa-fire text-rose-400"></i>
+          <span>Science-Backed Energy Telemetry</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight mb-4">
+          N24 BurnIQ <span class="gold-gradient-text">Calorie Engine</span>
         </h2>
-        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          Compute accurate exercise energy expenditure and EPOC oxygen debt using the 2024 Compendium of Physical Activities (Ainsworth et al. MET methodology).
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
+          Compute accurate workout calories burned, EPOC afterburn, and body fat mass oxidized using the official Compendium of Physical Activities (Ainsworth et al. MET methodology).
         </p>
       </div>
 
@@ -519,22 +529,25 @@
         
         <!-- Left: Exercise Configuration -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="exec-card p-5 sm:p-6 border border-white/[0.07] bg-[#0C0E14]">
+          <div class="bright-card p-6 sm:p-7 border border-white/15">
             
-            <h3 class="text-sm font-bold text-white mb-4 pb-3 border-b border-white/[0.06] flex items-center justify-between">
-              <span>Activity & Training Parameters</span>
-              <span class="text-[11px] font-mono text-slate-400">Compendium Standard</span>
+            <h3 class="text-base font-extrabold text-white mb-4 pb-3 border-b border-white/10 flex items-center justify-between">
+              <span class="flex items-center space-x-2">
+                <i class="fa-solid fa-heart-pulse text-rose-400 text-sm"></i>
+                <span>Workout & Training Parameters</span>
+              </span>
+              <span class="text-xs text-amber-300 font-mono font-bold">METs Grounded</span>
             </h3>
 
             <!-- Exercise Selection -->
             <div class="mb-5">
-              <label class="block text-xs text-slate-400 font-medium mb-1.5">
-                Training Modality
+              <label class="block text-xs uppercase tracking-wider text-slate-200 font-bold mb-2">
+                Select Activity / Training Modality
               </label>
-              <select id="burn-exercise-select" class="exec-select text-xs">
+              <select id="burn-exercise-select" class="bright-select text-xs font-bold">
                 <!-- Populated dynamically by calorie-calculator.js -->
               </select>
-              <div id="burn-exercise-meta" class="mt-2">
+              <div id="burn-exercise-meta" class="mt-2.5">
                 <!-- Metadata badge -->
               </div>
             </div>
@@ -542,63 +555,63 @@
             <!-- Body Weight & Age -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
               <div id="burn-weight-imperial-wrap">
-                <label class="block text-xs text-slate-400 font-medium mb-1.5">
+                <label class="block text-xs uppercase tracking-wider text-slate-200 font-bold mb-1.5">
                   Body Weight (lbs)
                 </label>
-                <input type="number" id="burn-weight-lbs" value="185" min="80" max="450" class="exec-input font-mono">
+                <input type="number" id="burn-weight-lbs" value="185" min="80" max="450" class="bright-input font-mono font-bold">
               </div>
 
               <div id="burn-weight-metric-wrap" class="hidden">
-                <label class="block text-xs text-slate-400 font-medium mb-1.5">
+                <label class="block text-xs uppercase tracking-wider text-slate-200 font-bold mb-1.5">
                   Body Weight (kg)
                 </label>
-                <input type="number" id="burn-weight-kg" value="84" min="35" max="200" class="exec-input font-mono">
+                <input type="number" id="burn-weight-kg" value="84" min="35" max="200" class="bright-input font-mono font-bold">
               </div>
 
               <div>
-                <label class="block text-xs text-slate-400 font-medium mb-1.5">
+                <label class="block text-xs uppercase tracking-wider text-slate-200 font-bold mb-1.5">
                   Client Age (Years)
                 </label>
-                <input type="number" id="burn-age-input" value="32" min="16" max="90" class="exec-input font-mono">
+                <input type="number" id="burn-age-input" value="32" min="16" max="90" class="bright-input font-mono font-bold">
               </div>
             </div>
 
             <!-- Duration -->
             <div class="mb-5">
-              <div class="flex justify-between items-center mb-1.5 text-xs">
-                <label class="text-slate-400 font-medium">Session Duration</label>
-                <div class="font-mono text-amber-200">
-                  <input type="number" id="burn-duration-input" value="60" min="5" max="300" class="w-12 bg-black/60 border border-white/10 rounded px-1 text-center font-bold text-white focus:outline-none">
+              <div class="flex justify-between items-center mb-1.5 text-xs font-bold">
+                <label class="text-slate-200 uppercase tracking-wider">Session Duration</label>
+                <div class="font-mono text-amber-300 flex items-center space-x-1">
+                  <input type="number" id="burn-duration-input" value="60" min="5" max="300" class="w-14 bg-black/80 border border-amber-400/40 rounded-lg p-1 text-center font-bold text-white focus:outline-none">
                   <span>mins</span>
                 </div>
               </div>
-              <input type="range" id="burn-duration-slider" value="60" min="5" max="180" step="5" class="w-full accent-amber-400 cursor-pointer">
+              <input type="range" id="burn-duration-slider" value="60" min="5" max="180" step="5" class="w-full accent-amber-400 cursor-pointer h-2 bg-black rounded-lg">
             </div>
 
             <!-- Intensity Selector -->
             <div class="mb-6">
-              <label class="block text-xs text-slate-400 font-medium mb-2">
+              <label class="block text-xs uppercase tracking-wider text-slate-200 font-bold mb-2">
                 Effort & Pacing Multiplier
               </label>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                <button type="button" class="btn-burn-intensity p-2 rounded bg-white/5 text-slate-400 border border-white/5 font-mono" data-intensity="0.85">
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono font-bold">
+                <button type="button" class="btn-burn-intensity p-2.5 rounded-lg bg-white/5 text-slate-300 border border-white/10 hover:border-amber-400 transition" data-intensity="0.85">
                   Warmup (0.85x)
                 </button>
-                <button type="button" class="btn-burn-intensity p-2 rounded bg-white/15 text-white border border-white/20 font-bold font-mono" data-intensity="1.0">
+                <button type="button" class="btn-burn-intensity p-2.5 rounded-lg bg-amber-400 text-black border border-amber-400 font-extrabold shadow" data-intensity="1.0">
                   Target (1.0x)
                 </button>
-                <button type="button" class="btn-burn-intensity p-2 rounded bg-white/5 text-slate-400 border border-white/5 font-mono" data-intensity="1.18">
+                <button type="button" class="btn-burn-intensity p-2.5 rounded-lg bg-white/5 text-slate-300 border border-white/10 hover:border-amber-400 transition" data-intensity="1.18">
                   Vigorous (1.18x)
                 </button>
-                <button type="button" class="btn-burn-intensity p-2 rounded bg-white/5 text-slate-400 border border-white/5 font-mono" data-intensity="1.35">
+                <button type="button" class="btn-burn-intensity p-2.5 rounded-lg bg-white/5 text-slate-300 border border-white/10 hover:border-amber-400 transition" data-intensity="1.35">
                   Max Effort (1.35x)
                 </button>
               </div>
             </div>
 
             <!-- Action -->
-            <button type="button" id="btn-add-activity-log" class="btn-primary-gold w-full py-2.5 text-xs font-bold uppercase tracking-wider">
-              Log to Training Record
+            <button type="button" id="btn-add-activity-log" class="btn-gold-bright w-full py-3 text-xs font-extrabold uppercase tracking-wider shadow-lg">
+              <i class="fa-solid fa-plus-circle mr-2 text-sm"></i> Log to Today's Workout Record
             </button>
 
           </div>
@@ -608,58 +621,58 @@
         <div class="lg:col-span-5 space-y-6">
           
           <!-- Primary Metric Card -->
-          <div class="exec-card p-5 sm:p-6 border border-white/[0.08] bg-[#0C0E14] text-center">
-            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-mono font-medium block mb-1">
-              Active Caloric Expenditure
+          <div class="bright-card p-6 border-2 border-amber-400/50 bg-gradient-to-b from-[#181B26] to-[#0E1018] text-center shadow-[0_0_30px_rgba(245,189,71,0.2)]">
+            <span class="text-xs uppercase tracking-wider text-amber-300 font-mono font-extrabold block mb-1">
+              Active Workout Calorie Burn
             </span>
-            <div class="flex items-center justify-center space-x-1.5 my-2">
-              <span id="burn-result-calories" class="text-4xl sm:text-5xl font-extrabold text-white font-mono tracking-tight">504</span>
-              <span class="text-base font-semibold text-amber-200/90 font-mono">kcal</span>
+            <div class="flex items-center justify-center space-x-2 my-2">
+              <span id="burn-result-calories" class="text-5xl sm:text-6xl font-black text-white font-mono tracking-tight drop-shadow-md">504</span>
+              <span class="text-2xl font-bold text-amber-300 font-mono">kcal</span>
             </div>
 
-            <p class="text-[11px] text-slate-400 font-mono mb-5">
-              Total Impact (Active + EPOC): <strong id="burn-result-total-impact" class="text-slate-200">564 kcal</strong>
+            <p class="text-xs text-slate-300 font-mono font-semibold mb-5">
+              Total Metabolic Impact (Active + EPOC): <strong id="burn-result-total-impact" class="text-white font-black text-sm">564 kcal</strong>
             </p>
 
-            <div class="grid grid-cols-2 gap-2 text-left text-xs font-mono">
-              <div class="p-2.5 rounded bg-black/40 border border-white/[0.04]">
-                <span class="text-[10px] text-slate-400 uppercase block">Fat Mass:</span>
-                <span id="burn-result-fat" class="font-bold text-slate-200">2.3 oz (65.5g)</span>
+            <div class="grid grid-cols-2 gap-2.5 text-left text-xs font-mono font-bold">
+              <div class="p-3 rounded-xl bg-black/60 border border-white/10">
+                <span class="text-[10px] text-amber-300 uppercase block font-bold">Fat Mass Oxidized:</span>
+                <span id="burn-result-fat" class="font-extrabold text-white text-sm">2.3 oz (65.5g)</span>
               </div>
-              <div class="p-2.5 rounded bg-black/40 border border-white/[0.04]">
-                <span class="text-[10px] text-slate-400 uppercase block">EPOC Debt:</span>
-                <span id="burn-result-epoc" class="font-bold text-amber-200/90">+60 kcal</span>
+              <div class="p-3 rounded-xl bg-black/60 border border-white/10">
+                <span class="text-[10px] text-rose-300 uppercase block font-bold">EPOC Afterburn:</span>
+                <span id="burn-result-epoc" class="font-extrabold text-rose-400 text-sm">+60 kcal</span>
               </div>
-              <div class="p-2.5 rounded bg-black/40 border border-white/[0.04]">
-                <span class="text-[10px] text-slate-400 uppercase block">Burn Rate:</span>
-                <span id="burn-result-rate" class="font-bold text-slate-200">8.4 kcal/min</span>
+              <div class="p-3 rounded-xl bg-black/60 border border-white/10">
+                <span class="text-[10px] text-slate-300 uppercase block font-bold">Burn Rate:</span>
+                <span id="burn-result-rate" class="font-extrabold text-white text-sm">8.4 kcal/min</span>
               </div>
-              <div class="p-2.5 rounded bg-black/40 border border-white/[0.04]">
-                <span class="text-[10px] text-slate-400 uppercase block">Target HR:</span>
-                <span id="burn-result-hr" class="font-bold text-sky-400">~133 BPM (70%)</span>
+              <div class="p-3 rounded-xl bg-black/60 border border-white/10">
+                <span class="text-[10px] text-sky-300 uppercase block font-bold">Target Heart Rate:</span>
+                <span id="burn-result-hr" class="font-extrabold text-sky-400 text-sm">~133 BPM (70%)</span>
               </div>
             </div>
           </div>
 
           <!-- Session Log Card -->
-          <div class="exec-card p-5 border border-white/[0.07] bg-[#0C0E14]">
-            <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.06]">
+          <div class="bright-card p-6 border border-white/15">
+            <div class="flex items-center justify-between pb-3.5 mb-3.5 border-b border-white/10">
               <div>
-                <h4 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Today's Training Log</h4>
-                <span id="today-activity-count" class="text-[11px] text-slate-400 font-mono">2 sessions recorded</span>
+                <h4 class="text-xs font-extrabold text-white uppercase tracking-wider font-mono">Today's Workout Log</h4>
+                <span id="today-activity-count" class="text-[11px] text-amber-300 font-mono font-bold">2 sessions recorded</span>
               </div>
               <div class="text-right font-mono">
-                <span class="text-[10px] text-slate-400 uppercase block">Cumulative Burn</span>
-                <span id="today-total-burned" class="text-amber-200 font-bold text-sm">627 kcal</span>
+                <span class="text-[10px] text-slate-400 uppercase block font-bold">Total Burned</span>
+                <span id="today-total-burned" class="text-amber-300 font-black text-base">627 kcal</span>
               </div>
             </div>
 
-            <div id="logged-activities-list" class="space-y-1.5 mb-3 max-h-48 overflow-y-auto pr-1">
+            <div id="logged-activities-list" class="space-y-2 mb-3.5 max-h-48 overflow-y-auto pr-1">
               <!-- Dynamically populated by calorie-calculator.js -->
             </div>
 
-            <button type="button" id="btn-clear-activities" class="text-[11px] text-slate-500 hover:text-slate-300 transition font-mono">
-              Reset training log
+            <button type="button" id="btn-clear-activities" class="text-xs text-rose-400 hover:text-white transition font-mono font-semibold underline">
+              Reset today's workout log
             </button>
           </div>
 
@@ -670,41 +683,46 @@
   </section>
 
   <!-- ==================== FEATURE 3: NET CALORIC BALANCE ==================== -->
-  <section id="energy-balance-section" class="py-16 bg-[#08090C] border-b border-white/[0.05]">
+  <section id="energy-balance-section" class="py-16 bg-[#07080C] border-b border-white/10">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="exec-card p-6 sm:p-8 rounded-xl border border-white/[0.08] bg-[#0C0E14]">
-        <div class="text-center mb-6">
-          <span class="text-xs font-mono uppercase tracking-widest text-amber-200/90 font-semibold block mb-1">
-            Energy Balance Synchronization
-          </span>
-          <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+      <div class="bright-card p-8 sm:p-10 rounded-2xl border-2 border-amber-400/40 shadow-[0_0_40px_rgba(245,189,71,0.2)]">
+        <div class="text-center mb-8">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full badge-bright-gold text-xs font-bold uppercase tracking-widest mb-2">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span>Real-Time Energy Telemetry</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
             Net Daily Caloric Balance
           </h3>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-center font-mono">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center text-center font-mono">
           
-          <div class="p-4 rounded-lg bg-black/40 border border-white/[0.04]">
-            <span class="text-xs text-slate-400 block mb-1">Energy In (Diet Protocol)</span>
-            <span id="energy-calories-in" class="text-2xl font-bold text-white">1,850 kcal</span>
+          <div class="p-5 rounded-2xl bg-black/60 border border-white/15 shadow-inner">
+            <span class="text-xs uppercase tracking-wider text-slate-300 font-bold block mb-1">
+              <i class="fa-solid fa-utensils text-amber-400 mr-1.5"></i> Energy In (Diet Protocol)
+            </span>
+            <span id="energy-calories-in" class="text-3xl font-black text-white">1,850 kcal</span>
           </div>
 
-          <div class="hidden md:flex justify-center text-slate-500 text-lg">
+          <div class="hidden md:flex justify-center text-amber-400 text-3xl font-black font-mono">
             −
           </div>
 
-          <div class="p-4 rounded-lg bg-black/40 border border-white/[0.04]">
-            <span class="text-xs text-slate-400 block mb-1">Energy Out (Training Burn)</span>
-            <span id="energy-calories-out" class="text-2xl font-bold text-amber-200">627 kcal</span>
+          <div class="p-5 rounded-2xl bg-black/60 border border-white/15 shadow-inner">
+            <span class="text-xs uppercase tracking-wider text-slate-300 font-bold mb-1 block">
+              <i class="fa-solid fa-fire text-rose-400 mr-1.5"></i> Energy Out (Training Burn)
+            </span>
+            <span id="energy-calories-out" class="text-3xl font-black text-rose-400">627 kcal</span>
           </div>
 
         </div>
 
-        <div class="mt-6 pt-5 border-t border-white/[0.06] text-center">
-          <div class="inline-block p-3 rounded-lg bg-black/50 border border-white/10 px-6 font-mono">
-            <span class="text-[11px] text-slate-400 uppercase block font-medium">Net Energetic Load:</span>
-            <span id="energy-net-balance" class="text-3xl font-extrabold text-white my-1 block">1,223 kcal</span>
+        <div class="mt-8 pt-6 border-t border-white/10 text-center">
+          <div class="inline-block p-4 rounded-2xl bg-gradient-to-r from-amber-500/20 to-amber-400/20 border-2 border-amber-400/60 px-8 font-mono shadow-[0_0_20px_rgba(245,189,71,0.25)]">
+            <span class="text-xs uppercase text-amber-200 block font-extrabold tracking-wider">Net Daily Caloric Load:</span>
+            <span id="energy-net-balance" class="text-4xl font-black text-white my-1 block">1,223 kcal</span>
             <div id="energy-status-msg" class="text-xs mt-1 font-sans">
               <!-- Dynamically populated status -->
             </div>
@@ -720,15 +738,16 @@
   <section id="transformations" class="py-20 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="max-w-3xl mb-12">
-        <span class="text-xs uppercase font-mono tracking-widest text-amber-200/90 font-semibold block mb-1">
-          Verified US Case Studies
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-          Measurable Physiological Outcomes
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full badge-bright-gold text-xs font-extrabold uppercase tracking-widest mb-3">
+          <i class="fa-solid fa-star"></i>
+          <span>Verified US Case Studies</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight mb-4">
+          Real Results Across <span class="gold-gradient-text">The United States</span>
         </h2>
-        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          Real client transformations documented with DEXA body composition scans, metabolic assessments, and clinical biomarker tracking.
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
+          Documented transformations from Austin, Miami, Chicago, and San Francisco featuring DEXA body fat scans, biomarker optimization, and lean hypertrophy.
         </p>
       </div>
 
@@ -739,56 +758,56 @@
     </div>
   </section>
 
-  <!-- ==================== COACHING TIERS ==================== -->
-  <section id="pricing-tiers" class="py-20 bg-[#0A0C11] relative border-y border-white/[0.05]">
+  <!-- ==================== COACHING & PRICING TIERS ==================== -->
+  <section id="pricing-tiers" class="py-20 bg-[#0E1018] relative border-y border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="max-w-3xl mb-12">
-        <span class="text-xs uppercase font-mono tracking-widest text-amber-200/90 font-semibold block mb-1">
-          Executive Coaching Packages
-        </span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-3">
-          Transparent USD Pricing & Deliverables
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full badge-bright-gold text-xs font-extrabold uppercase tracking-widest mb-3">
+          <i class="fa-solid fa-crown"></i>
+          <span>Coaching Packages</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight mb-4">
+          Transparent <span class="gold-gradient-text">USD Pricing</span> & Deliverables
         </h2>
-        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          Direct 1-on-1 access to NASM and CSCS certified coaches. Month-to-month flexibility with guaranteed biometric progress milestones.
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
+          Direct 1-on-1 access to certified coaches with month-to-month flexibility and guaranteed milestone progress.
         </p>
       </div>
 
-      <div id="pricing-tiers-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+      <div id="pricing-tiers-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
         <!-- Populated by app.js from data.js -->
       </div>
 
     </div>
   </section>
 
-  <!-- ==================== STRATEGY CONSULTATION CTA BANNER ==================== -->
+  <!-- ==================== STRATEGY CONSULTATION BANNER ==================== -->
   <section id="consultation-booking" class="py-20 relative">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="exec-card p-8 sm:p-10 rounded-2xl border border-white/10 text-center bg-[#0C0E14]">
+      <div class="bright-card-gold p-8 sm:p-12 rounded-3xl text-center shadow-2xl relative overflow-hidden">
         
-        <div class="w-16 h-16 rounded-xl overflow-hidden border border-white/10 p-0.5 bg-black/60 mx-auto mb-5">
+        <div class="w-18 h-18 rounded-2xl overflow-hidden border-2 border-amber-400 p-1 bg-black mx-auto mb-6 shadow-xl w-20 h-20">
           <img src="assets/images/n24-logo.jpg" alt="N24 Logo" class="w-full h-full object-cover">
         </div>
 
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-3">
-          Schedule Your 1-on-1 Performance Audit
+        <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight mb-4">
+          Schedule Your 1-on-1 <span class="gold-gradient-text">Performance Audit</span>
         </h2>
 
-        <p class="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto mb-6 leading-relaxed">
-          Book a 30-minute private strategy session with our Coaching Director. We review your current training metrics, metabolic rate, and outline a tailored 90-day trajectory.
+        <p class="text-slate-200 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed font-medium">
+          Reserve your private 30-minute transformation diagnostic with our Coaching Director. We review your metabolic rate, current training, and establish your custom 90-day trajectory.
         </p>
 
-        <button type="button" class="btn-open-consult-modal btn-primary-gold px-8 py-3 text-xs uppercase tracking-wider font-bold">
-          Schedule Free Strategy Session
+        <button type="button" class="btn-open-consult-modal btn-gold-bright px-10 py-4 text-sm uppercase tracking-wider font-extrabold shadow-xl inline-flex items-center space-x-2">
+          <i class="fa-solid fa-calendar-check text-base"></i>
+          <span>Schedule Free US Strategy Session</span>
         </button>
 
-        <div class="mt-5 flex flex-wrap justify-center items-center gap-4 text-xs font-mono text-slate-500">
-          <span>Confidential Intake</span>
-          <span>•</span>
-          <span>US Timezones Accommodated</span>
-          <span>•</span>
-          <span>No Obligation</span>
+        <div class="mt-6 flex flex-wrap justify-center items-center gap-6 text-xs font-mono font-bold text-amber-200">
+          <span><i class="fa-solid fa-lock mr-1.5"></i> 100% Confidential Intake</span>
+          <span><i class="fa-solid fa-clock mr-1.5"></i> All US Timezones Accommodated</span>
+          <span><i class="fa-solid fa-ban mr-1.5"></i> No Sales Pressure</span>
         </div>
 
       </div>
@@ -796,43 +815,44 @@
   </section>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer class="bg-[#08090C] border-t border-white/[0.06] py-12 text-xs text-slate-400">
+  <footer class="bg-[#07080C] border-t border-white/15 py-14 text-xs text-slate-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
         
-        <div class="md:col-span-2 space-y-3">
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 rounded-lg overflow-hidden border border-white/10 p-0.5 bg-black/60">
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3.5">
+            <div class="w-10 h-10 rounded-xl overflow-hidden border-2 border-amber-400/80 p-0.5 bg-black shadow-md">
               <img src="assets/images/n24-logo.jpg" alt="N24 Logo" class="w-full h-full object-cover">
             </div>
             <div>
-              <span class="text-sm font-bold text-white">N24 FITNESS</span>
-              <span class="text-[10px] text-slate-500 block font-mono">Stronger • Healthier • Better</span>
+              <span class="text-lg font-black text-white">N24</span>
+              <span class="text-lg font-black gold-gradient-text ml-1">FITNESS</span>
+              <span class="text-[10px] text-amber-300 font-mono block font-bold tracking-widest uppercase">Stronger • Healthier • Better</span>
             </div>
           </div>
-          <p class="text-slate-400 text-xs leading-relaxed max-w-md">
-            Premier evidence-based human performance, custom nutrition architecture, and online fitness coaching for US professionals.
+          <p class="text-slate-300 text-xs leading-relaxed max-w-md">
+            The premier science-grounded online fitness, custom nutrition architect, and human performance coaching platform for US clients.
           </p>
         </div>
 
         <div>
-          <h5 class="text-white font-semibold uppercase tracking-wider text-xs mb-3 font-mono">Platform Systems</h5>
-          <ul class="space-y-1.5 text-xs text-slate-400">
-            <li><a href="#diet-architect" class="hover:text-amber-200 transition">Diet Architect</a></li>
-            <li><a href="#calorie-calculator" class="hover:text-amber-200 transition">BurnIQ Calculator</a></li>
-            <li><a href="#energy-balance-section" class="hover:text-amber-200 transition">Net Energy Balance</a></li>
-            <li><a href="#transformations" class="hover:text-amber-200 transition">Case Studies</a></li>
-            <li><a href="#pricing-tiers" class="hover:text-amber-200 transition">Coaching Packages</a></li>
+          <h5 class="text-white font-extrabold uppercase tracking-wider text-xs mb-3 font-mono">Platform Systems</h5>
+          <ul class="space-y-2 text-xs font-semibold text-slate-300">
+            <li><a href="#diet-architect" class="hover:text-amber-300 transition">Smart Diet Architect</a></li>
+            <li><a href="#calorie-calculator" class="hover:text-amber-300 transition">BurnIQ Calorie Engine</a></li>
+            <li><a href="#energy-balance-section" class="hover:text-amber-300 transition">Net Caloric Balance</a></li>
+            <li><a href="#transformations" class="hover:text-amber-300 transition">US Client Case Studies</a></li>
+            <li><a href="#pricing-tiers" class="hover:text-amber-300 transition">Coaching Packages</a></li>
           </ul>
         </div>
 
         <div>
-          <h5 class="text-white font-semibold uppercase tracking-wider text-xs mb-3 font-mono">US Operations</h5>
-          <p class="text-xs text-slate-400 mb-2">
-            Nationwide Coaching Across All 50 States.<br>
+          <h5 class="text-white font-extrabold uppercase tracking-wider text-xs mb-3 font-mono">US Operations</h5>
+          <p class="text-xs text-slate-300 mb-2 leading-relaxed">
+            Coaching across all 50 US States.<br>
             Timezones: Eastern, Central, Mountain, Pacific.
           </p>
-          <div class="text-[11px] text-slate-500 font-mono">
+          <div class="text-[11px] text-amber-300 font-mono font-bold">
             NASM Certified Master Trainer<br>
             CSCS Strength Specialist<br>
             ISSN Sports Nutritionist
@@ -841,93 +861,93 @@
 
       </div>
 
-      <div class="pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500 font-mono">
+      <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400 font-mono">
         <div>&copy; 2026 N24 FITNESS LLC. All rights reserved. Registered in the United States.</div>
-        <div class="flex space-x-4">
-          <a href="#" class="hover:text-slate-300">Privacy Policy</a>
-          <a href="#" class="hover:text-slate-300">Terms of Service</a>
-          <a href="#" class="hover:text-slate-300">Clinical Disclaimer</a>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <a href="#" class="hover:text-white">Terms of Service</a>
+          <a href="#" class="hover:text-white">Clinical Disclaimer</a>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- ==================== MODAL: FOOD CATALOG ==================== -->
-  <div id="food-catalog-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-    <div class="exec-card w-full max-w-xl max-h-[85vh] flex flex-col border border-white/10 p-5 relative bg-[#0E1016]">
-      <div class="flex items-center justify-between pb-3 border-b border-white/[0.06] mb-3">
+  <div id="food-catalog-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
+    <div class="bright-card w-full max-w-xl max-h-[85vh] flex flex-col border-2 border-amber-400/50 p-6 relative bg-[#12141D] shadow-2xl">
+      <div class="flex items-center justify-between pb-3.5 border-b border-white/10 mb-4">
         <div>
-          <h3 class="text-sm font-bold text-white">Add Food Item</h3>
-          <p class="text-[11px] text-slate-400">Target Slot: <span id="modal-target-meal-name" class="text-amber-200 font-semibold font-mono">Breakfast</span></p>
+          <h3 class="text-base font-extrabold text-white">Add Food Item to Meal</h3>
+          <p class="text-xs text-amber-300 font-bold font-mono">Target Slot: <span id="modal-target-meal-name" class="text-white">Breakfast</span></p>
         </div>
         <button type="button" class="btn-close-modal text-slate-400 hover:text-white p-1">
-          <i class="fa-solid fa-xmark text-sm"></i>
+          <i class="fa-solid fa-xmark text-lg"></i>
         </button>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
-        <input type="text" id="modal-food-search" placeholder="Search USDA food database..." class="exec-input text-xs">
-        <select id="modal-food-category-filter" class="exec-select text-xs">
-          <option value="all">All Categories</option>
-          <option value="protein">Lean Proteins</option>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+        <input type="text" id="modal-food-search" placeholder="Search USDA food database..." class="bright-input text-xs font-bold">
+        <select id="modal-food-category-filter" class="bright-select text-xs font-bold">
+          <option value="all">All Food Categories</option>
+          <option value="protein">Lean Proteins & Poultry</option>
           <option value="carbs">Complex Carbohydrates</option>
-          <option value="fats">Healthy Fats</option>
+          <option value="fats">Healthy Fats & Oils</option>
           <option value="greens">Greens & Vegetables</option>
-          <option value="fruits">Fruits & Berries</option>
+          <option value="fruits">Fruits & Superfoods</option>
         </select>
       </div>
 
-      <div id="modal-food-list" class="space-y-1.5 overflow-y-auto flex-1 pr-1 max-h-[48vh]">
+      <div id="modal-food-list" class="space-y-2 overflow-y-auto flex-1 pr-1 max-h-[48vh]">
         <!-- Populated dynamically -->
       </div>
     </div>
   </div>
 
   <!-- ==================== MODAL: CUSTOM FOOD CREATOR ==================== -->
-  <div id="custom-food-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-    <div class="exec-card w-full max-w-sm border border-white/10 p-5 relative bg-[#0E1016]">
-      <div class="flex items-center justify-between pb-3 border-b border-white/[0.06] mb-3">
+  <div id="custom-food-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
+    <div class="bright-card w-full max-w-md border-2 border-amber-400/50 p-6 relative bg-[#12141D] shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
         <div>
-          <h3 class="text-sm font-bold text-white">Define Custom Food</h3>
-          <p class="text-[11px] text-slate-400">Adding to <span id="custom-modal-target-meal" class="text-amber-200 font-mono">Breakfast</span></p>
+          <h3 class="text-base font-extrabold text-white">Define Custom Food</h3>
+          <p class="text-xs text-amber-300 font-mono">Adding to <span id="custom-modal-target-meal" class="text-white font-bold">Breakfast</span></p>
         </div>
         <button type="button" class="btn-close-modal text-slate-400 hover:text-white p-1">
-          <i class="fa-solid fa-xmark text-sm"></i>
+          <i class="fa-solid fa-xmark text-lg"></i>
         </button>
       </div>
 
-      <form id="custom-food-form" class="space-y-3 text-xs">
+      <form id="custom-food-form" class="space-y-3.5 text-xs font-bold">
         <div>
-          <label class="block text-slate-400 mb-1">Item Name</label>
-          <input type="text" id="custom-food-name" required placeholder="e.g. Fairlife Core Power 42g" class="exec-input">
+          <label class="block text-slate-200 mb-1">Item Name</label>
+          <input type="text" id="custom-food-name" required placeholder="e.g. Fairlife Core Power 42g" class="bright-input font-normal">
         </div>
         <div>
-          <label class="block text-slate-400 mb-1">Portion Descriptor</label>
-          <input type="text" id="custom-food-portion" required placeholder="e.g. 1 bottle (14 fl oz) or 6 oz" class="exec-input">
+          <label class="block text-slate-200 mb-1">Portion Descriptor</label>
+          <input type="text" id="custom-food-portion" required placeholder="e.g. 1 bottle (14 fl oz) or 6 oz" class="bright-input font-normal">
         </div>
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-slate-400 mb-1">Calories (kcal)</label>
-            <input type="number" id="custom-food-calories" required min="0" placeholder="230" class="exec-input font-mono">
+            <label class="block text-slate-200 mb-1">Calories (kcal)</label>
+            <input type="number" id="custom-food-calories" required min="0" placeholder="230" class="bright-input font-mono">
           </div>
           <div>
             <label class="block text-sky-400 mb-1">Protein (g)</label>
-            <input type="number" id="custom-food-protein" required min="0" step="0.5" placeholder="42" class="exec-input font-mono">
+            <input type="number" id="custom-food-protein" required min="0" step="0.5" placeholder="42" class="bright-input font-mono">
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-amber-200 mb-1">Carbs (g)</label>
-            <input type="number" id="custom-food-carbs" required min="0" step="0.5" placeholder="8" class="exec-input font-mono">
+            <label class="block text-amber-300 mb-1">Carbs (g)</label>
+            <input type="number" id="custom-food-carbs" required min="0" step="0.5" placeholder="8" class="bright-input font-mono">
           </div>
           <div>
             <label class="block text-rose-400 mb-1">Fat (g)</label>
-            <input type="number" id="custom-food-fat" required min="0" step="0.5" placeholder="3.5" class="exec-input font-mono">
+            <input type="number" id="custom-food-fat" required min="0" step="0.5" placeholder="3.5" class="bright-input font-mono">
           </div>
         </div>
 
-        <button type="submit" class="btn-primary-gold w-full py-2 text-xs font-bold uppercase tracking-wider mt-3">
-          Save Item
+        <button type="submit" class="btn-gold-bright w-full py-3 text-xs font-black uppercase tracking-wider mt-4">
+          Save Custom Food
         </button>
       </form>
     </div>
@@ -935,55 +955,55 @@
 
   <!-- ==================== MODAL: STRATEGY CONSULTATION INTAKE ==================== -->
   <div id="consultation-booking-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
-    <div class="exec-card w-full max-w-md border border-white/10 p-6 relative bg-[#0E1016]">
+    <div class="bright-card w-full max-w-lg border-2 border-amber-400/60 p-6 sm:p-8 relative bg-[#12141D] shadow-2xl">
       
       <button id="btn-close-consult-modal" type="button" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
-        <i class="fa-solid fa-xmark text-base"></i>
+        <i class="fa-solid fa-xmark text-lg"></i>
       </button>
 
       <!-- Booking Fields View -->
       <div id="consult-fields-view">
         <div class="flex items-center space-x-3 mb-4">
-          <div class="w-9 h-9 rounded-lg overflow-hidden border border-white/10 p-0.5 bg-black/60">
+          <div class="w-10 h-10 rounded-xl overflow-hidden border-2 border-amber-400/80 p-0.5 bg-black shadow">
             <img src="assets/images/n24-logo.jpg" alt="N24 Logo" class="w-full h-full object-cover">
           </div>
           <div>
-            <h3 class="text-sm font-bold text-white">Book US Strategy Session</h3>
-            <p class="text-[11px] text-slate-400">Complimentary 30-Minute Intake Assessment</p>
+            <h3 class="text-base font-extrabold text-white">Book US Strategy Session</h3>
+            <p class="text-xs text-amber-300 font-bold">Complimentary 30-Minute Intake Assessment</p>
           </div>
         </div>
 
-        <form id="us-consultation-form" class="space-y-3 text-xs">
+        <form id="us-consultation-form" class="space-y-3.5 text-xs font-bold">
           <div>
-            <label class="block text-slate-400 mb-1">Full Legal Name</label>
-            <input type="text" id="consult-name" required placeholder="e.g. David Vance" class="exec-input">
+            <label class="block text-slate-200 mb-1">Full Legal Name</label>
+            <input type="text" id="consult-name" required placeholder="e.g. David Vance" class="bright-input font-normal">
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block text-slate-400 mb-1">Email</label>
-              <input type="email" id="consult-email" required placeholder="client@domain.com" class="exec-input">
+              <label class="block text-slate-200 mb-1">Email Address</label>
+              <input type="email" id="consult-email" required placeholder="client@company.com" class="bright-input font-normal">
             </div>
             <div>
-              <label class="block text-slate-400 mb-1">US Phone</label>
-              <input type="tel" id="consult-phone" required placeholder="(555) 019-2834" class="exec-input">
+              <label class="block text-slate-200 mb-1">US Phone Number</label>
+              <input type="tel" id="consult-phone" required placeholder="(555) 019-2834" class="bright-input font-normal">
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block text-slate-400 mb-1">US Timezone</label>
-              <select id="consult-state" class="exec-select">
-                <option value="EST">Eastern (EST / EDT)</option>
-                <option value="CST">Central (CST / CDT)</option>
-                <option value="MST">Mountain (MST / MDT)</option>
-                <option value="PST">Pacific (PST / PDT)</option>
+              <label class="block text-slate-200 mb-1">US Timezone</label>
+              <select id="consult-state" class="bright-select">
+                <option value="EST">Eastern Time (EST / EDT)</option>
+                <option value="CST">Central Time (CST / CDT)</option>
+                <option value="MST">Mountain Time (MST / MDT)</option>
+                <option value="PST">Pacific Time (PST / PDT)</option>
                 <option value="AKST">Alaska / Hawaii</option>
               </select>
             </div>
             <div>
-              <label class="block text-slate-400 mb-1">Program of Interest</label>
-              <select id="consult-goal" class="exec-select">
+              <label class="block text-slate-200 mb-1">Interested Program</label>
+              <select id="consult-goal" class="bright-select">
                 <option value="Elite Transformation Coaching">Elite Transformation ($199/mo)</option>
                 <option value="Executive Concierge">Executive Concierge ($399/mo)</option>
                 <option value="N24 Digital Architecture">N24 Digital ($49/mo)</option>
@@ -992,14 +1012,14 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block text-slate-400 mb-1">Preferred Date</label>
-              <input type="date" id="consult-date" class="exec-input font-mono">
+              <label class="block text-slate-200 mb-1">Preferred Consultation Date</label>
+              <input type="date" id="consult-date" class="bright-input font-mono">
             </div>
             <div>
-              <label class="block text-slate-400 mb-1">Preferred Time</label>
-              <select id="consult-time" class="exec-select font-mono">
+              <label class="block text-slate-200 mb-1">Preferred Time</label>
+              <select id="consult-time" class="bright-select font-mono font-bold">
                 <option value="09:00 AM">09:00 AM</option>
                 <option value="11:30 AM">11:30 AM</option>
                 <option value="02:00 PM">02:00 PM</option>
@@ -1009,29 +1029,29 @@
             </div>
           </div>
 
-          <button type="submit" class="btn-primary-gold w-full py-2.5 text-xs font-bold uppercase tracking-wider mt-3">
-            Confirm Strategy Call
+          <button type="submit" class="btn-gold-bright w-full py-3.5 text-xs font-black uppercase tracking-wider mt-4">
+            <i class="fa-solid fa-lock mr-2"></i> Confirm Strategy Call
           </button>
         </form>
       </div>
 
       <!-- Confirmation Success View -->
-      <div id="consult-confirmation-view" class="hidden text-center py-5">
-        <div class="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mx-auto mb-3 border border-emerald-500/20">
+      <div id="consult-confirmation-view" class="hidden text-center py-6">
+        <div class="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mx-auto mb-3 border-2 border-emerald-500/40">
           <i class="fa-solid fa-check"></i>
         </div>
-        <h3 class="text-base font-bold text-white mb-1">Consultation Confirmed</h3>
-        <p class="text-slate-300 text-xs mb-3">
-          Thank you, <strong id="conf-client-name" class="text-white">Athlete</strong>. Your private session has been scheduled:
+        <h3 class="text-lg font-black text-white uppercase tracking-tight mb-1">Consultation Confirmed</h3>
+        <p class="text-slate-200 text-xs mb-4">
+          Thank you, <strong id="conf-client-name" class="text-amber-300">Athlete</strong>. Your private session has been scheduled:
         </p>
-        <div class="p-2.5 rounded bg-black/40 border border-white/10 text-amber-200 font-mono text-xs mb-4 inline-block" id="conf-booking-details">
-          <!-- Details populated by app.js -->
+        <div class="p-3 rounded-xl bg-black/60 border border-amber-400/40 text-amber-300 font-mono text-sm mb-5 inline-block font-bold" id="conf-booking-details">
+          <!-- Populated by app.js -->
         </div>
-        <p class="text-slate-400 text-xs leading-relaxed max-w-xs mx-auto mb-5">
+        <p class="text-slate-300 text-xs leading-relaxed max-w-sm mx-auto mb-6">
           A calendar invite and introductory client intake questionnaire have been logged. Our US Coaching Director will reach out to you directly.
         </p>
-        <button type="button" class="btn-close-modal btn-secondary px-5 py-2 text-xs font-semibold">
-          Dismiss
+        <button type="button" class="btn-close-modal btn-gold-bright px-6 py-2.5 text-xs font-extrabold uppercase">
+          Done
         </button>
       </div>
 
