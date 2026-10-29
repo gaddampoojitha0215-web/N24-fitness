@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing & Coverage
+coverage/
+
+# Production
+build/
+dist/
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.local

@@ -1,0 +1,21 @@
+{
+  "name": "n24-fitness-platform",
+  "version": "1.0.0",
+  "description": "N24 Fitness - Premier online fitness and custom nutrition platform for US clients.",
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "dev": "npx serve . -l 3000",
+    "serve": "npx serve . -l 3000"
+  },
+  "keywords": [
+    "fitness",
+    "nutrition",
+    "diet-builder",
+    "calorie-calculator",
+    "us-fitness",
+    "n24-fitness"
+  ],
+  "author": "N24 Fitness",
+  "license": "MIT"
+}
+
