@@ -301,6 +301,81 @@ html.light-theme .badge-bright-gold {
   transform: rotate(15deg);
 }
 
+/* ==================== GLASSMORPHIC MODALS & TRANSPARENT LOGO BADGES ==================== */
+.modal-backdrop-glass {
+  background: rgba(7, 8, 12, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: opacity 0.25s ease, backdrop-filter 0.25s ease;
+}
+
+html.light-theme .modal-backdrop-glass {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.modal-card-glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border-highlight);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 25px var(--gold-glow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+html.light-theme .modal-card-glass {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 25px rgba(245, 189, 71, 0.25);
+}
+
+/* Transparent Logo Badge Containers */
+.logo-badge-adaptive {
+  background: rgba(245, 189, 71, 0.08);
+  border: 1px solid rgba(245, 189, 71, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.light-theme .logo-badge-adaptive {
+  background: rgba(245, 189, 71, 0.12);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.1);
+}
+
+.logo-badge-adaptive:hover {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+/* Hero Showcase Transparent Logo Container */
+.hero-logo-showcase {
+  background: radial-gradient(circle at center, rgba(245, 189, 71, 0.12) 0%, rgba(255, 255, 255, 0.02) 65%, transparent 100%);
+  border: 1.5px solid rgba(245, 189, 71, 0.45);
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+html.light-theme .hero-logo-showcase {
+  background: radial-gradient(circle at center, rgba(245, 189, 71, 0.15) 0%, rgba(241, 245, 249, 0.5) 75%, transparent 100%);
+  border: 1.5px solid rgba(217, 119, 6, 0.4);
+  box-shadow: 0 15px 35px -5px rgba(217, 119, 6, 0.15);
+}
+
+/* Transparent Logo Pop Filters */
+.n24-logo-img {
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 8px rgba(245, 189, 71, 0.25));
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+html.light-theme .n24-logo-img {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.18)) drop-shadow(0 2px 4px rgba(217, 119, 6, 0.2));
+}
+
 /* Adaptive Inner Element Helpers */
 html.light-theme .light-invert-black {
   background-color: #F8FAFC !important;

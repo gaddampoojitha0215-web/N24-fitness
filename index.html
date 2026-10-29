@@ -7,7 +7,7 @@
   <title>N24 FITNESS — Premier US Online Fitness & Custom Nutrition Platform</title>
   <meta name="description"
     content="N24 Fitness - Stronger, Healthier, Better. Interactive custom diet architect, science-backed MET calories burned calculator, and elite 1-on-1 coaching for US clients.">
-  <link rel="icon" type="image/jpeg" href="assets/images/n24-logo.jpg">
+  <link rel="icon" type="image/png" href="assets/images/n24-logo-transparent.png">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -75,8 +75,8 @@
       <!-- Brand Logo with official image -->
       <a href="#" class="flex items-center space-x-3.5 group">
         <div
-          class="w-12 h-12 rounded-xl overflow-hidden border-2 border-amber-400/80 p-0.5 bg-black shadow-[0_0_20px_rgba(245,189,71,0.4)] group-hover:border-amber-300 transition group-hover:scale-105 duration-200">
-          <img src="assets/images/n24-logo.jpg" alt="Official N24 Fitness Insignia" class="w-full h-full object-cover">
+          class="w-12 h-12 rounded-xl flex items-center justify-center p-1 border border-amber-400/60 shadow-[0_0_20px_rgba(245,189,71,0.3)] group-hover:border-amber-300 transition group-hover:scale-105 duration-200 logo-badge-adaptive">
+          <img src="assets/images/n24-logo-transparent.png" alt="Official N24 Fitness Insignia" class="w-full h-full object-contain n24-logo-img">
         </div>
         <div>
           <div class="flex items-center space-x-1.5">
@@ -232,11 +232,11 @@
             <div class="bright-card-gold p-7 rounded-2xl relative overflow-hidden group">
               <div class="flex flex-col items-center text-center relative z-10">
 
-                <!-- Logo with bright golden glow -->
+                <!-- Logo with transparent showcase background -->
                 <div
-                  class="w-full max-w-[290px] rounded-2xl overflow-hidden border-2 border-amber-400 shadow-[0_0_35px_rgba(245,189,71,0.5)] mb-6 bg-black">
-                  <img src="assets/images/n24-logo.jpg" alt="Official N24 Fitness Insignia"
-                    class="w-full h-auto object-contain">
+                  class="w-full max-w-[290px] p-4 rounded-2xl mb-6 hero-logo-showcase flex items-center justify-center">
+                  <img src="assets/images/n24-logo-transparent.png" alt="Official N24 Fitness Insignia"
+                    class="w-full h-auto max-h-[220px] object-contain n24-logo-img">
                 </div>
 
                 <div
@@ -891,8 +891,8 @@
       <div class="bright-card-gold p-8 sm:p-12 rounded-3xl text-center shadow-2xl relative overflow-hidden">
 
         <div
-          class="w-20 h-20 rounded-2xl overflow-hidden border-2 border-amber-400 p-1 bg-black mx-auto mb-6 shadow-xl">
-          <img src="assets/images/n24-logo.jpg" alt="N24 Logo" class="w-full h-full object-cover">
+          class="w-20 h-20 rounded-2xl flex items-center justify-center p-2.5 logo-badge-adaptive mx-auto mb-6 shadow-xl">
+          <img src="assets/images/n24-logo-transparent.png" alt="N24 Logo" class="w-full h-full object-contain n24-logo-img">
         </div>
 
         <h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-4" style="color: var(--text-heading);">
@@ -928,8 +928,8 @@
 
         <div class="md:col-span-2 space-y-4">
           <div class="flex items-center space-x-3.5">
-            <div class="w-10 h-10 rounded-xl overflow-hidden border-2 border-amber-400/80 p-0.5 bg-black shadow-md">
-              <img src="assets/images/n24-logo.jpg" alt="N24 Logo" class="w-full h-full object-cover">
+            <div class="w-11 h-11 rounded-xl flex items-center justify-center p-1 logo-badge-adaptive shadow-md">
+              <img src="assets/images/n24-logo-transparent.png" alt="N24 Logo" class="w-full h-full object-contain n24-logo-img">
             </div>
             <div>
               <span class="text-lg font-black" style="color: var(--text-heading);">N24</span>
@@ -987,9 +987,9 @@
 
   <!-- ==================== MODAL: FOOD CATALOG ==================== -->
   <div id="food-catalog-modal"
-    class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
+    class="hidden fixed inset-0 z-50 flex items-center justify-center modal-backdrop-glass p-4">
     <div
-      class="bright-card w-full max-w-xl max-h-[85vh] flex flex-col border-2 border-amber-400/50 p-6 relative shadow-2xl">
+      class="modal-card-glass w-full max-w-xl max-h-[85vh] flex flex-col p-6 relative">
       <div class="flex items-center justify-between pb-3.5 border-b mb-4"
         style="border-bottom-color: var(--border-subtle);">
         <div>
@@ -1023,8 +1023,8 @@
 
   <!-- ==================== MODAL: CUSTOM FOOD CREATOR ==================== -->
   <div id="custom-food-modal"
-    class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
-    <div class="bright-card w-full max-w-md border-2 border-amber-400/50 p-6 relative shadow-2xl">
+    class="hidden fixed inset-0 z-50 flex items-center justify-center modal-backdrop-glass p-4">
+    <div class="modal-card-glass w-full max-w-md p-6 relative">
       <div class="flex items-center justify-between pb-3 border-b mb-4"
         style="border-bottom-color: var(--border-subtle);">
         <div>
@@ -1082,8 +1082,8 @@
 
   <!-- ==================== MODAL: STRATEGY CONSULTATION INTAKE ==================== -->
   <div id="consultation-booking-modal"
-    class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
-    <div class="bright-card w-full max-w-lg border-2 border-amber-400/60 p-6 sm:p-8 relative shadow-2xl">
+    class="hidden fixed inset-0 z-50 flex items-center justify-center modal-backdrop-glass p-4">
+    <div class="modal-card-glass w-full max-w-lg p-6 sm:p-8 relative">
 
       <button id="btn-close-consult-modal" type="button"
         class="absolute top-4 right-4 p-1 text-lg opacity-70 hover:opacity-100">
@@ -1092,9 +1092,9 @@
 
       <!-- Booking Fields View -->
       <div id="consult-fields-view">
-        <div class="flex items-center space-x-3 mb-4">
-          <div class="w-10 h-10 rounded-xl overflow-hidden border-2 border-amber-400/80 p-0.5 bg-black shadow">
-            <img src="assets/images/n24-logo.jpg" alt="N24 Logo" class="w-full h-full object-cover">
+        <div class="flex items-center space-x-3.5 mb-5">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center p-1 logo-badge-adaptive shadow">
+            <img src="assets/images/n24-logo-transparent.png" alt="N24 Logo" class="w-full h-full object-contain n24-logo-img">
           </div>
           <div>
             <h3 class="text-base font-extrabold" style="color: var(--text-heading);">Book US Strategy Session</h3>
