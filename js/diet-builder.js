@@ -213,69 +213,69 @@ class DietArchitect {
       const mealFat = items.reduce((sum, item) => sum + item.fat, 0);
 
       const mealCard = document.createElement('div');
-      mealCard.className = 'bright-card p-5 mb-5 border border-white/10 relative hover:border-amber-400/50 transition';
+      mealCard.className = 'bright-card p-5 mb-5 border relative transition';
 
       mealCard.innerHTML = `
-        <div class="flex flex-wrap items-center justify-between pb-3.5 mb-3.5 border-b border-white/10 gap-3">
+        <div class="flex flex-wrap items-center justify-between pb-3.5 mb-3.5 border-b gap-3" style="border-bottom-color: var(--border-subtle);">
           <div class="flex items-center space-x-3">
-            <span class="w-3 h-3 rounded-full bg-gradient-to-r from-amber-300 to-amber-500 shadow-[0_0_10px_#F5BD47]"></span>
-            <h4 class="font-extrabold text-base text-white tracking-tight">${mealTitle}</h4>
-            <span class="text-xs px-2.5 py-0.5 rounded-full bg-amber-400/10 text-amber-300 font-mono font-semibold border border-amber-400/20">
+            <span class="w-3 h-3 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 shadow-[0_0_8px_rgba(245,189,71,0.5)]"></span>
+            <h4 class="font-extrabold text-base tracking-tight">${mealTitle}</h4>
+            <span class="text-xs px-2.5 py-0.5 rounded-full font-mono font-semibold bg-amber-400/10 text-amber-500 border border-amber-400/30">
               ${items.length} ${items.length === 1 ? 'item' : 'items'}
             </span>
           </div>
 
           <div class="flex items-center space-x-3 text-xs font-mono font-bold">
-            <span class="px-2.5 py-1 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30 text-sm font-black">
+            <span class="px-2.5 py-1 rounded bg-amber-400/20 text-amber-500 border border-amber-400/30 text-sm font-black">
               ${Math.round(mealCalories)} kcal
             </span>
-            <span class="text-sky-400 bg-sky-400/10 px-2 py-0.5 rounded border border-sky-400/20">${Math.round(mealProtein)}g P</span>
-            <span class="text-amber-300 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">${Math.round(mealCarbs)}g C</span>
-            <span class="text-rose-400 bg-rose-400/10 px-2 py-0.5 rounded border border-rose-400/20">${Math.round(mealFat)}g F</span>
+            <span class="text-sky-500 bg-sky-400/10 px-2 py-0.5 rounded border border-sky-400/20">${Math.round(mealProtein)}g P</span>
+            <span class="text-amber-500 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">${Math.round(mealCarbs)}g C</span>
+            <span class="text-rose-500 bg-rose-400/10 px-2 py-0.5 rounded border border-rose-400/20">${Math.round(mealFat)}g F</span>
           </div>
         </div>
 
         <!-- Food items list -->
         <div class="space-y-2 mb-4">
           ${items.length === 0 ? `
-            <div class="py-6 text-center text-slate-400 text-xs border border-dashed border-white/10 rounded-xl bg-black/40">
-              <i class="fa-solid fa-utensils text-amber-400/60 text-lg mb-2 block"></i>
+            <div class="py-6 text-center opacity-70 text-xs border border-dashed rounded-xl" style="border-color: var(--border-subtle); background: var(--bg-inner-input);">
+              <i class="fa-solid fa-utensils text-amber-400 text-lg mb-2 block"></i>
               No food items added yet. Click "+ Add Food Item" below to populate.
             </div>
           ` : items.map((item, index) => `
-            <div class="flex flex-wrap items-center justify-between p-3 rounded-xl bg-black/50 hover:bg-black/70 transition border border-white/10 gap-2 text-xs">
+            <div class="flex flex-wrap items-center justify-between p-3 rounded-xl transition gap-2 text-xs border" style="background: var(--bg-inner-input); border-color: var(--border-subtle);">
               <div class="flex items-center space-x-3 min-w-[200px] flex-1">
-                <div class="w-8 h-8 rounded-lg bg-amber-400/15 text-amber-300 flex items-center justify-center font-bold text-sm border border-amber-400/30">
+                <div class="w-8 h-8 rounded-lg bg-amber-400/15 text-amber-500 flex items-center justify-center font-bold text-sm border border-amber-400/30">
                   <i class="fa-solid fa-${item.icon || 'bowl-food'}"></i>
                 </div>
                 <div>
-                  <div class="font-bold text-white text-sm">${item.name}</div>
-                  <div class="text-xs text-amber-200/90 font-mono mt-0.5">
-                    Portion: <strong class="text-white">${item.servingDisplay}</strong>
+                  <div class="font-bold text-sm">${item.name}</div>
+                  <div class="text-xs opacity-85 font-mono mt-0.5">
+                    Portion: <strong class="text-amber-500">${item.servingDisplay}</strong>
                   </div>
                 </div>
               </div>
 
               <!-- Macros Display -->
               <div class="flex items-center space-x-3 text-xs font-mono font-bold">
-                <span class="text-white bg-white/10 px-2 py-1 rounded">${Math.round(item.calories)} cal</span>
-                <span class="text-sky-400">${Math.round(item.protein)}g P</span>
-                <span class="text-amber-300">${Math.round(item.carbs)}g C</span>
-                <span class="text-rose-400">${Math.round(item.fat)}g F</span>
+                <span class="opacity-90 px-2 py-1 rounded border" style="border-color: var(--border-subtle);">${Math.round(item.calories)} cal</span>
+                <span class="text-sky-500">${Math.round(item.protein)}g P</span>
+                <span class="text-amber-500">${Math.round(item.carbs)}g C</span>
+                <span class="text-rose-500">${Math.round(item.fat)}g F</span>
               </div>
 
               <!-- Portions Stepper Buttons -->
               <div class="flex items-center space-x-1.5 ml-2">
-                <button type="button" class="btn-serving-decrease w-7 h-7 rounded-lg bg-white/10 hover:bg-amber-400 hover:text-black text-white font-bold text-sm flex items-center justify-center transition border border-white/20"
-                  data-meal="${mealKey}" data-index="${index}" title="Decrease portion">
+                <button type="button" class="btn-serving-decrease w-7 h-7 rounded-lg hover:bg-amber-400 hover:text-black font-bold text-sm flex items-center justify-center transition border"
+                  style="border-color: var(--border-subtle);" data-meal="${mealKey}" data-index="${index}" title="Decrease portion">
                   -
                 </button>
-                <span class="text-xs text-amber-300 font-mono font-extrabold px-2">${item.multiplier}x</span>
-                <button type="button" class="btn-serving-increase w-7 h-7 rounded-lg bg-white/10 hover:bg-amber-400 hover:text-black text-white font-bold text-sm flex items-center justify-center transition border border-white/20"
-                  data-meal="${mealKey}" data-index="${index}" title="Increase portion">
+                <span class="text-xs text-amber-500 font-mono font-extrabold px-2">${item.multiplier}x</span>
+                <button type="button" class="btn-serving-increase w-7 h-7 rounded-lg hover:bg-amber-400 hover:text-black font-bold text-sm flex items-center justify-center transition border"
+                  style="border-color: var(--border-subtle);" data-meal="${mealKey}" data-index="${index}" title="Increase portion">
                   +
                 </button>
-                <button type="button" class="btn-remove-item ml-2 p-1.5 text-slate-400 hover:text-rose-400 transition"
+                <button type="button" class="btn-remove-item ml-2 p-1.5 text-slate-400 hover:text-rose-500 transition"
                   data-meal="${mealKey}" data-index="${index}" title="Remove item">
                   <i class="fa-solid fa-trash-can text-sm"></i>
                 </button>
@@ -292,7 +292,7 @@ class DietArchitect {
             <span>Add Food Item</span>
           </button>
 
-          <button type="button" class="btn-open-custom-modal text-xs text-amber-200 hover:text-white flex items-center space-x-1 font-semibold underline underline-offset-4 transition"
+          <button type="button" class="btn-open-custom-modal text-xs text-amber-500 hover:underline flex items-center space-x-1 font-semibold transition"
             data-meal="${mealKey}">
             <span>+ Define Custom Item</span>
           </button>
@@ -489,7 +489,7 @@ class DietArchitect {
     if (calDiffEl) {
       const cDiff = this.targets.calories - totalCalories;
       calDiffEl.innerText = cDiff >= 0 ? `${cDiff} kcal remaining` : `+${Math.abs(cDiff)} kcal surplus`;
-      calDiffEl.className = cDiff >= 0 ? 'text-xs text-amber-300 font-mono font-bold' : 'text-xs text-rose-400 font-mono font-bold';
+      calDiffEl.className = cDiff >= 0 ? 'text-xs text-amber-500 font-mono font-bold' : 'text-xs text-rose-500 font-mono font-bold';
     }
 
     if (protDiffEl) {
@@ -504,6 +504,7 @@ class DietArchitect {
     const canvas = document.getElementById('diet-macro-chart');
     if (!canvas) return;
 
+    const isLight = document.documentElement.classList.contains('light-theme');
     const ctx = canvas.getContext('2d');
     const protCals = protein * 4;
     const carbCals = carbs * 4;
@@ -523,11 +524,11 @@ class DietArchitect {
       datasets: [{
         data: [protein * 4, carbs * 4, fat * 9],
         backgroundColor: [
-          '#00D2FF', // Electric Cyan
-          '#FFB800', // Radiant Gold
-          '#FF4757'  // Fiery Rose
+          '#0284C7', // Sky Blue
+          '#F59E0B', // Radiant Gold
+          '#EF4444'  // Rose Red
         ],
-        borderColor: '#12141D',
+        borderColor: isLight ? '#FFFFFF' : '#12141D',
         borderWidth: 3,
         hoverOffset: 6
       }]
@@ -535,6 +536,7 @@ class DietArchitect {
 
     if (this.chartInstance) {
       this.chartInstance.data = data;
+      this.chartInstance.options.plugins.legend.labels.color = isLight ? '#0F172A' : '#FFFFFF';
       this.chartInstance.update();
     } else if (window.Chart) {
       this.chartInstance = new window.Chart(ctx, {
@@ -547,7 +549,7 @@ class DietArchitect {
             legend: {
               position: 'bottom',
               labels: {
-                color: '#FFFFFF',
+                color: isLight ? '#0F172A' : '#FFFFFF',
                 font: { family: 'Plus Jakarta Sans', size: 12, weight: '700' },
                 padding: 12,
                 usePointStyle: true,
@@ -555,11 +557,11 @@ class DietArchitect {
               }
             },
             tooltip: {
-              backgroundColor: '#1E2230',
+              backgroundColor: isLight ? '#FFFFFF' : '#1E2230',
               borderColor: 'rgba(245,189,71,0.5)',
               borderWidth: 1.5,
-              titleColor: '#FFFFFF',
-              bodyColor: '#FFD56B',
+              titleColor: isLight ? '#0F172A' : '#FFFFFF',
+              bodyColor: '#F59E0B',
               callbacks: {
                 label: function(context) {
                   return ` ${context.label}: ${context.raw} kcal`;
@@ -614,13 +616,13 @@ class DietArchitect {
     if (!container) return;
 
     container.innerHTML = PRESET_DIETS.map(preset => `
-      <button type="button" class="btn-load-preset p-3.5 rounded-xl bg-black/40 border border-white/10 hover:border-amber-400 text-left transition flex items-center justify-between group shadow-sm"
-        data-id="${preset.id}">
+      <button type="button" class="btn-load-preset p-3.5 rounded-xl border text-left transition flex items-center justify-between group shadow-sm"
+        style="background: var(--bg-inner-input); border-color: var(--border-subtle);" data-id="${preset.id}">
         <div>
-          <div class="text-sm font-extrabold text-white group-hover:text-amber-300 transition">${preset.name}</div>
-          <div class="text-xs text-amber-200/90 font-mono mt-0.5 font-semibold">${preset.targetCalories} kcal • ${preset.targetProtein}g Protein</div>
+          <div class="text-sm font-extrabold group-hover:text-amber-500 transition">${preset.name}</div>
+          <div class="text-xs text-amber-500 font-mono mt-0.5 font-semibold">${preset.targetCalories} kcal • ${preset.targetProtein}g Protein</div>
         </div>
-        <div class="w-7 h-7 rounded-full bg-amber-400/20 group-hover:bg-amber-400 group-hover:text-black text-amber-300 flex items-center justify-center transition">
+        <div class="w-7 h-7 rounded-full bg-amber-400/20 group-hover:bg-amber-400 group-hover:text-black text-amber-500 flex items-center justify-center transition">
           <i class="fa-solid fa-bolt text-xs"></i>
         </div>
       </button>
@@ -654,7 +656,7 @@ class DietArchitect {
 
       if (filtered.length === 0) {
         listContainer.innerHTML = `
-          <div class="text-center py-8 text-slate-400 text-xs">
+          <div class="text-center py-8 opacity-70 text-xs">
             No matching food items found. Use "+ Define Custom Item" to add your own.
           </div>
         `;
@@ -664,24 +666,24 @@ class DietArchitect {
       listContainer.innerHTML = filtered.map(food => {
         const serving = isImperial ? `${food.serving} ${food.unit}` : `${food.metricServing} ${food.metricUnit}`;
         return `
-          <div class="flex items-center justify-between p-3 rounded-xl bg-black/50 hover:bg-black/80 border border-white/10 transition">
+          <div class="flex items-center justify-between p-3 rounded-xl border transition" style="background: var(--bg-inner-input); border-color: var(--border-subtle);">
             <div class="flex items-center space-x-3">
-              <div class="w-8 h-8 rounded-lg bg-amber-400/20 text-amber-300 flex items-center justify-center text-sm font-bold">
+              <div class="w-8 h-8 rounded-lg bg-amber-400/20 text-amber-500 flex items-center justify-center text-sm font-bold">
                 <i class="fa-solid fa-${food.icon}"></i>
               </div>
               <div>
-                <h5 class="text-xs font-bold text-white">${food.name}</h5>
-                <p class="text-[11px] text-amber-200/80 font-mono">Serving: <strong class="text-white">${serving}</strong></p>
+                <h5 class="text-xs font-bold">${food.name}</h5>
+                <p class="text-[11px] opacity-80 font-mono">Serving: <strong class="text-amber-500">${serving}</strong></p>
               </div>
             </div>
 
             <div class="flex items-center space-x-3.5">
               <div class="text-right text-xs font-mono font-bold">
-                <div class="text-amber-300 text-sm">${food.calories} cal</div>
-                <div class="text-slate-300 text-[11px] space-x-1">
-                  <span class="text-sky-400">${food.protein}P</span>
-                  <span class="text-amber-200">${food.carbs}C</span>
-                  <span class="text-rose-400">${food.fat}F</span>
+                <div class="text-amber-500 text-sm">${food.calories} cal</div>
+                <div class="opacity-80 text-[11px] space-x-1">
+                  <span class="text-sky-500">${food.protein}P</span>
+                  <span class="text-amber-500">${food.carbs}C</span>
+                  <span class="text-rose-500">${food.fat}F</span>
                 </div>
               </div>
 
@@ -871,14 +873,14 @@ class DietArchitect {
       totalFat += mealFat;
 
       mealHtml += `
-        <div style="margin-bottom: 16px; padding: 12px; border: 1px solid #E2E8F0; border-radius: 6px;">
+        <div style="margin-bottom: 16px; padding: 12px; border: 1px solid #CBD5E1; border-radius: 6px;">
           <div style="display: flex; justify-content: space-between; border-bottom: 2px solid #F5BD47; padding-bottom: 6px; margin-bottom: 8px;">
             <strong style="font-size: 14px; color: #0F172A;">${this.mealNames[mealKey]}</strong>
-            <span style="font-weight: 700; color: #C48C18; font-family: monospace; font-size: 13px;">${Math.round(mealCals)} kcal (${Math.round(mealProt)}g P | ${Math.round(mealCarb)}g C | ${Math.round(mealFat)}g F)</span>
+            <span style="font-weight: 700; color: #B45309; font-family: monospace; font-size: 13px;">${Math.round(mealCals)} kcal (${Math.round(mealProt)}g P | ${Math.round(mealCarb)}g C | ${Math.round(mealFat)}g F)</span>
           </div>
           <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
             <thead>
-              <tr style="background: #F8FAFC; text-align: left; color: #475569;">
+              <tr style="background: #F1F5F9; text-align: left; color: #334155;">
                 <th style="padding: 6px;">Item</th>
                 <th style="padding: 6px;">Portion</th>
                 <th style="padding: 6px;">Energy</th>
@@ -889,8 +891,8 @@ class DietArchitect {
               ${items.map(item => {
                 groceryList.add(item.name);
                 return `
-                  <tr style="border-bottom: 1px solid #F1F5F9;">
-                    <td style="padding: 6px; color: #1E293B;"><strong>${item.name}</strong></td>
+                  <tr style="border-bottom: 1px solid #E2E8F0;">
+                    <td style="padding: 6px; color: #0F172A;"><strong>${item.name}</strong></td>
                     <td style="padding: 6px; color: #475569;">${item.servingDisplay}</td>
                     <td style="padding: 6px; font-family: monospace;">${Math.round(item.calories)} cal</td>
                     <td style="padding: 6px; font-family: monospace;">${Math.round(item.protein)}g / ${Math.round(item.carbs)}g / ${Math.round(item.fat)}g</td>
@@ -963,10 +965,13 @@ class DietArchitect {
     if (!toast) {
       toast = document.createElement('div');
       toast.id = 'n24-toast';
-      toast.className = 'fixed bottom-5 right-5 z-50 px-4 py-3 rounded-xl bg-[#1E2230] text-white border border-amber-400 shadow-2xl transition-all duration-300 transform translate-y-8 opacity-0 flex items-center space-x-2 text-xs font-bold';
+      toast.className = 'fixed bottom-5 right-5 z-50 px-4 py-3 rounded-xl border shadow-2xl transition-all duration-300 transform translate-y-8 opacity-0 flex items-center space-x-2 text-xs font-bold';
       document.body.appendChild(toast);
     }
-    toast.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_8px_#F5BD47]"></span><span>${message}</span>`;
+    toast.style.background = 'var(--bg-card-bright)';
+    toast.style.borderColor = 'var(--gold-primary)';
+    toast.style.color = 'var(--text-heading)';
+    toast.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(245,189,71,0.6)]"></span><span>${message}</span>`;
     toast.classList.remove('translate-y-8', 'opacity-0');
     
     setTimeout(() => {

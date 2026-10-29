@@ -4,6 +4,7 @@ import { calorieCalculator } from './calorie-calculator.js';
 import { CLIENT_TESTIMONIALS, COACHING_TIERS } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeManager();
   dietArchitect.init();
   calorieCalculator.init();
 
@@ -14,6 +15,54 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initSmoothScroll();
 });
+
+// --- THEME MANAGER (DARK / LIGHT MODE) ---
+function initThemeManager() {
+  const toggleButtons = document.querySelectorAll('.btn-theme-toggle');
+  
+  // Detect saved preference or system default
+  const savedTheme = localStorage.getItem('N24_THEME');
+  const isLight = savedTheme === 'light';
+
+  const applyTheme = (light) => {
+    if (light) {
+      document.documentElement.classList.add('light-theme');
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.remove('light-theme');
+      document.documentElement.classList.add('dark');
+    }
+
+    toggleButtons.forEach(btn => {
+      btn.innerHTML = light 
+        ? `<i class="fa-solid fa-moon text-slate-800 text-sm"></i>` 
+        : `<i class="fa-solid fa-sun text-amber-300 text-sm"></i>`;
+      btn.setAttribute('title', light ? 'Switch to Dark Mode' : 'Switch to Light Mode');
+    });
+
+    // Notify Diet Architect to adapt Chart.js colors
+    if (window.N24_DIET_ARCHITECT && window.N24_DIET_ARCHITECT.updateSummaryAndCharts) {
+      window.N24_DIET_ARCHITECT.updateSummaryAndCharts();
+    }
+  };
+
+  // Initial application
+  applyTheme(isLight);
+
+  // Bind click listeners
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const currentIsLight = document.documentElement.classList.contains('light-theme');
+      const nextIsLight = !currentIsLight;
+      localStorage.setItem('N24_THEME', nextIsLight ? 'light' : 'dark');
+      applyTheme(nextIsLight);
+      
+      if (window.N24_DIET_ARCHITECT) {
+        window.N24_DIET_ARCHITECT.showToast(nextIsLight ? 'Light Theme Activated' : 'Dark Theme Activated');
+      }
+    });
+  });
+}
 
 // --- GLOBAL UNIT SWITCHER ---
 function initUnitSwitcher() {
@@ -51,7 +100,7 @@ function renderTestimonials() {
   if (!container) return;
 
   container.innerHTML = CLIENT_TESTIMONIALS.map(t => `
-    <div class="bright-card p-6 sm:p-7 flex flex-col justify-between border border-white/15 relative group hover:border-amber-400/60 transition duration-300">
+    <div class="bright-card p-6 sm:p-7 flex flex-col justify-between border relative group hover:border-amber-400/60 transition duration-300">
       <div>
         <div class="flex items-center justify-between mb-3">
           <div class="flex items-center space-x-1 text-amber-400 text-xs">
@@ -60,35 +109,35 @@ function renderTestimonials() {
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
             <i class="fa-solid fa-star"></i>
-            <span class="text-amber-200/90 ml-2 font-mono text-[11px] font-bold">Verified US Athlete</span>
+            <span class="text-amber-400 ml-2 font-mono text-[11px] font-bold">Verified US Athlete</span>
           </div>
-          <span class="text-xs text-amber-300 font-mono font-bold bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">
+          <span class="text-xs text-amber-400 font-mono font-bold bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/30">
             ${t.duration}
           </span>
         </div>
 
-        <span class="text-xs font-mono text-amber-300 font-extrabold uppercase tracking-wider block mb-2">
+        <span class="text-xs font-mono text-amber-400 font-extrabold uppercase tracking-wider block mb-2">
           ${t.program}
         </span>
 
-        <p class="text-slate-200 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+        <p class="text-xs sm:text-sm leading-relaxed mb-6 font-medium opacity-90">
           "${t.quote}"
         </p>
       </div>
 
-      <div class="pt-4 border-t border-white/10">
+      <div class="pt-4 border-t border-white/10 dark:border-white/10" style="border-top-color: var(--border-subtle);">
         <div class="flex items-center justify-between mb-3">
           <div>
-            <h5 class="font-extrabold text-white text-base">${t.name}</h5>
-            <div class="text-xs text-amber-200 font-semibold">
-              <i class="fa-solid fa-location-dot mr-1 text-amber-400"></i> ${t.location} • <span class="text-slate-300">${t.role}</span>
+            <h5 class="font-extrabold text-base">${t.name}</h5>
+            <div class="text-xs font-semibold opacity-75">
+              <i class="fa-solid fa-location-dot mr-1 text-amber-400"></i> ${t.location} • <span>${t.role}</span>
             </div>
           </div>
         </div>
 
-        <div class="bg-black/60 rounded-xl p-3 text-xs font-mono text-white border border-white/10 flex flex-wrap items-center justify-between gap-1 shadow-inner">
-          <span class="text-amber-300 font-black">${t.achievement}</span>
-          <span class="text-slate-300 text-xs font-semibold">${t.metrics}</span>
+        <div class="light-invert-black rounded-xl p-3 text-xs font-mono border flex flex-wrap items-center justify-between gap-1 shadow-inner" style="background-color: var(--bg-inner-input); border-color: var(--border-subtle);">
+          <span class="text-amber-400 font-black">${t.achievement}</span>
+          <span class="text-xs font-semibold opacity-80">${t.metrics}</span>
         </div>
       </div>
     </div>
@@ -102,7 +151,7 @@ function renderCoachingTiers() {
 
   container.innerHTML = COACHING_TIERS.map(tier => `
     <div class="bright-card p-7 sm:p-8 flex flex-col justify-between relative transition duration-300 ${
-      tier.popular ? 'bright-card-gold md:-translate-y-2' : 'border border-white/15'
+      tier.popular ? 'bright-card-gold md:-translate-y-2' : ''
     }">
       ${tier.popular ? `
         <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-black font-black text-xs uppercase tracking-wider shadow-lg">
@@ -111,16 +160,16 @@ function renderCoachingTiers() {
       ` : ''}
 
       <div>
-        <h4 class="text-xl font-black text-white mb-2">${tier.name}</h4>
-        <p class="text-xs text-slate-300 mb-6 font-medium min-h-[36px]">${tier.description}</p>
+        <h4 class="text-xl font-black mb-2">${tier.name}</h4>
+        <p class="text-xs opacity-75 mb-6 font-medium min-h-[36px]">${tier.description}</p>
 
-        <div class="flex items-baseline mb-6 pb-6 border-b border-white/10">
-          <span class="text-2xl font-bold text-amber-300 font-mono">$</span>
-          <span class="text-5xl font-black text-white font-mono tracking-tight ml-1">${tier.price}</span>
-          <span class="text-amber-200/90 text-xs ml-2 font-mono font-bold uppercase">${tier.period}</span>
+        <div class="flex items-baseline mb-6 pb-6 border-b" style="border-bottom-color: var(--border-subtle);">
+          <span class="text-2xl font-bold text-amber-400 font-mono">$</span>
+          <span class="text-5xl font-black font-mono tracking-tight ml-1">${tier.price}</span>
+          <span class="text-xs ml-2 font-mono font-bold uppercase opacity-80">${tier.period}</span>
         </div>
 
-        <ul class="space-y-3 mb-8 text-xs text-slate-200 font-semibold">
+        <ul class="space-y-3 mb-8 text-xs font-semibold opacity-90">
           ${tier.features.map(feat => `
             <li class="flex items-start space-x-2.5">
               <i class="fa-solid fa-circle-check text-amber-400 text-sm mt-0.5 flex-shrink-0"></i>
